@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/29 16:17:22 by ztan          #+#    #+#                 */
-/*   Updated: 2021/08/29 16:34:01 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/21 09:25:42 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	main(int argc, char **argv)
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::putchar('\n');
+	std::cout << std::endl;
 	return (1);
 }

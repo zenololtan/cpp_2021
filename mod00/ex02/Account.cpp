@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/29 16:51:51 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/06 14:12:39 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/21 09:40:46 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,19 @@ void	Account::displayAccountsInfos( void )
 void	Account::makeDeposit( int deposit )
 {
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";amount:" << _amount;
+	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount;
 	_amount += deposit;
 	_nbDeposits++;
 	_totalAmount += deposit;
 	_totalNbDeposits++;
 	std::cout << ";deposit:" << deposit << ";amount:" << _amount <<
-		 ";_nbDeposits:" << _nbDeposits << std::endl;
+		 ";nb_deposits:" << _nbDeposits << std::endl;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";amount:" << _amount;
+	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount;
 	if (_amount - withdrawal >= 0)
 	{
 		_amount -= withdrawal;
@@ -94,7 +94,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 		_totalAmount -= withdrawal;
 		_totalNbWithdrawals++;
 		std::cout << ";withdrawal:" << withdrawal << ";amount:" << _amount <<
-			 ";_nbWithdrawals:" << _nbWithdrawals << std::endl;
+			 ";nb_withdrawals:" << _nbWithdrawals << std::endl;
 		return (true);
 	}
 	else

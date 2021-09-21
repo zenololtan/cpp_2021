@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:30:43 by zenotan       #+#    #+#                 */
-/*   Updated: 2020/10/15 01:33:20 by zenotan       ########   odam.nl         */
+/*   Updated: 2021/09/21 13:47:38 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	replace(std::string Filename, std::string s1, std::string s2)
 		return Error("Can not replace a string with itself.");
 	while (std::getline(input, buff))
 	{
+		if (std::cin.eof())
+			exit(1);
 		index = buff.find(s1);
 		while (index != std::string::npos)
 		{

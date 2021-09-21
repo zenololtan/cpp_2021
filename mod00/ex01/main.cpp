@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/29 16:40:26 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/20 18:42:34 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/21 15:20:27 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,32 +79,36 @@ void	ft_giveinfo(class phonebook *pb, int i)
 	std::cout << "Darkest secret: " << pb[i].phonebook::get_darkestSecret() << std::endl;
 }
 
-void	ft_select(class phonebook *pb)
+void	ft_select(class phonebook *pb, int index)
 {
 	std::string	command;
+	int	num;
 
 	std::cout << "Would you like to know more??" << std::endl;
 	std::getline(std::cin, command);
-	if (command.compare("no") == 0)
-	{
-		std::cout << "aight." << std::endl;
+	if (std::cin.eof())
+		exit(1);
+	if (std::strlen(command) > 1 || !std::isdigit(*command.c_string()))
 		return ;
-	}
-	if (command.compare("1") == 0)
+	else
+		num = std::atoi(*command);
+	if (command.compare("NO") == 0)
+		return (void)(std::cout << "aight." << std::endl);
+	if (num > 0 && num <= index)
 		ft_giveinfo(pb, 0);
-	if (command.compare("2") == 0)
+	else if (command.compare("2") == 0)
 		ft_giveinfo(pb, 1);
-	if (command.compare("3") == 0)
+	else if (command.compare("3") == 0)
 		ft_giveinfo(pb, 2);
-	if (command.compare("4") == 0)
+	else if (command.compare("4") == 0)
 		ft_giveinfo(pb, 3);
-	if (command.compare("5") == 0)
+	else if (command.compare("5") == 0)
 		ft_giveinfo(pb, 4);
-	if (command.compare("6") == 0)
+	else if (command.compare("6") == 0)
 		ft_giveinfo(pb, 5);
-	if (command.compare("7") == 0)
+	else if (command.compare("7") == 0)
 		ft_giveinfo(pb, 6);
-	if (command.compare("8") == 0)
+	else if (command.compare("8") == 0)
 		ft_giveinfo(pb, 7);
 }
 
@@ -121,7 +125,7 @@ void	ft_search(class phonebook *pb, int amount)
 			ft_makeseperator();
 		i++;
 	}
-	ft_select(pb);
+	ft_select(pb, i);
 }
 
 int main(void)

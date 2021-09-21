@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/29 16:40:21 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/20 18:22:20 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/21 13:47:31 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ void	phonebook::setter(std::string str, void (phonebook::*f)(std::string))
 
 	std::cout << str;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+		exit(1);
 	(this->*f)(input);
 }
