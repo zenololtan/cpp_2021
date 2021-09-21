@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/29 16:39:32 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/20 18:40:44 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/21 15:24:55 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HP_DATA_HPP_
 
 # include <iostream>
+# include <stdio.h>
 # include <cstring>
 # include <string>
 # include <iomanip>

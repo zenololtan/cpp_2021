@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/29 16:40:26 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/21 15:20:27 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/21 15:28:02 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,27 +88,27 @@ void	ft_select(class phonebook *pb, int index)
 	std::getline(std::cin, command);
 	if (std::cin.eof())
 		exit(1);
-	if (std::strlen(command) > 1 || !std::isdigit(*command.c_string()))
+	if (strlen(command.c_str()) > 1 || !std::isdigit(*command.c_str()))
 		return ;
 	else
-		num = std::atoi(*command);
+		num = std::atoi(command.c_str());
 	if (command.compare("NO") == 0)
 		return (void)(std::cout << "aight." << std::endl);
-	if (num > 0 && num <= index)
+	if (num > 0 && num <= index && num == 1)
 		ft_giveinfo(pb, 0);
-	else if (command.compare("2") == 0)
+	else if (num > 0 && num <= index && num == 2)
 		ft_giveinfo(pb, 1);
-	else if (command.compare("3") == 0)
+	else if (num > 0 && num <= index && num == 3)
 		ft_giveinfo(pb, 2);
-	else if (command.compare("4") == 0)
+	else if (num > 0 && num <= index && num == 4)
 		ft_giveinfo(pb, 3);
-	else if (command.compare("5") == 0)
+	else if (num > 0 && num <= index && num == 5)
 		ft_giveinfo(pb, 4);
-	else if (command.compare("6") == 0)
+	else if (num > 0 && num <= index && num == 6)
 		ft_giveinfo(pb, 5);
-	else if (command.compare("7") == 0)
+	else if (num > 0 && num <= index && num == 7)
 		ft_giveinfo(pb, 6);
-	else if (command.compare("8") == 0)
+	else if (num > 0 && num <= index && num == 8)
 		ft_giveinfo(pb, 7);
 }
 
