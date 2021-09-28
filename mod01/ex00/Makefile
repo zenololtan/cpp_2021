@@ -6,7 +6,7 @@
 #    By: zenotan <zenotan@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/15 00:24:44 by zenotan       #+#    #+#                  #
-#    Updated: 2021/09/13 11:24:27 by ztan          ########   odam.nl          #
+#    Updated: 2021/09/22 13:54:36 by ztan          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = Zombie
 
 FILES = main.cpp \
 	Zombie.cpp \
-	ZombieEvent.cpp
+	newZombie.cpp \
+	randomChump.cpp
 
 OBJDIR = obj/
 

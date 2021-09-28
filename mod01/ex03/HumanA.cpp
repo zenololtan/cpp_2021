@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:30:06 by zenotan       #+#    #+#                 */
-/*   Updated: 2020/10/15 00:30:07 by zenotan       ########   odam.nl         */
+/*   Updated: 2021/09/28 14:56:36 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "HumanA.hpp"
 #include <iostream>
 
-HumanA::HumanA(std::string name, Weapon& weapon) : Name(name), _Weapon(weapon) {}
+HumanA::HumanA(std::string name, Weapon& weapon) : _Name(name), _Weapon(weapon) {}
 
 void		HumanA::attack()
 {
-	std::cout << Name << " attacks with his " << _Weapon.getType() << std::endl;
+	std::cout << _Name << " attacks with his " << _Weapon.getType() << std::endl;
 }

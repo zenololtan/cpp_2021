@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ZombieHorde.hpp                                    :+:    :+:            */
+/*   newZombie.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/15 00:26:33 by zenotan       #+#    #+#                 */
-/*   Updated: 2020/10/15 02:20:39 by zenotan       ########   odam.nl         */
+/*   Created: 2020/10/15 00:25:09 by zenotan       #+#    #+#                 */
+/*   Updated: 2021/09/28 14:28:28 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIEHORDE_HPP
-# define ZOMBIEHORDE_HPP
+#include <cstdlib>
+#include <iostream>
+#include "Zombie.hpp"
 
-# include "Zombie.hpp"
-
-class ZombieHorde
+Zombie*	newZombie(std::string name)
 {
-	private:
-		int		_amount;
-		Zombie	*horde;
-		ZombieHorde() {}
-	public:
-		ZombieHorde(int n);
-		ZombieHorde(const ZombieHorde& copy);
-		ZombieHorde&	operator=(const ZombieHorde& copy);
-		~ZombieHorde();
-		std::string		randomName();
-		std::string		randomType();
-};
-
-#endif
+	Zombie *zombie = new (std::nothrow) Zombie;
+	if (!zombie)
+		return (NULL);
+	zombie->setName(name);
+	return zombie;
+} //Allocating newzombie on the heap because it will extend the lifetime of the zombie beyond this function.

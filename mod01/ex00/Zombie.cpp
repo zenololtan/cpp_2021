@@ -6,50 +6,39 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:25:04 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/09/13 11:37:38 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/28 14:29:11 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include <iostream>
 
+Zombie::~Zombie()
+{
+	std::cout << YEL << "[" << _z_name << "] has been destructed" << WHT << std::endl;
+}
+
 Zombie::Zombie(const Zombie& copy)
 {
 	*this = copy;
 }
 
-Zombie::~Zombie()
-{
-	std::cout << YEL << "Zombie [" << z_name << "] has been destructed" << WHT << std::endl;
-}
-
-Zombie&	Zombie::operator=(const Zombie& copy)
+Zombie&		Zombie::operator=(const Zombie& copy)
 {
 	if (this != &copy)
 	{
-		this->z_name = copy.z_name;
-		this->z_type = copy.z_type;
+		this->_z_name = copy._z_name;
 	}
 	return *this;
 }
 
-void			Zombie::setZombie(std::string name, std::string type)
+void		Zombie::setName(std::string name)
 {
-	z_name = name;
-	z_type = type;
+	_z_name = name;
 }
 
-std::string		Zombie::getZombieType()
+void		Zombie::announce(void)
 {
-	return z_type;
-}
-
-std::string		Zombie::getZombieName()
-{
-	return z_name;
-}
-
-void			Zombie::announce(void)
-{
-	std::cout << "Name [" << z_name << "] type(" << z_type << "): " << "Got any more BRAIIIINZZZZ?" << std::endl;
+	std::cout << "[" << _z_name << "]: ";
+	std::cout << "yuuuuuuuuuuuuuuh" << std::endl;
 }

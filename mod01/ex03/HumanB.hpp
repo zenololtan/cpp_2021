@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:30:15 by zenotan       #+#    #+#                 */
-/*   Updated: 2020/10/15 02:35:11 by zenotan       ########   odam.nl         */
+/*   Updated: 2021/09/28 14:55:46 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 class HumanB
 {
 private:
-	std::string	Name;
+	std::string	_Name;
 	Weapon*		_weapon; // using a pointer because you cant have an empty ref
+
 public:
 	HumanB(std::string name);
 	void	setWeapon(Weapon& weapon);

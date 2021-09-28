@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:30:43 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/09/21 13:47:38 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/28 15:01:43 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ int	Error(std::string error)
 	return 1;	
 }
 
-int	replace(std::string Filename, std::string s1, std::string s2)
+void	replace(std::string index, int begin, int end)
+{
+	
+}
+
+int	replacer(std::string Filename, std::string s1, std::string s2)
 {
 	std::ifstream	input(Filename.c_str());
 	std::string		outputname(Filename + ".replace");
@@ -58,7 +63,7 @@ int	main(int argc, char **argv)
 {
 	if (argc != 4)
 		return Error("Invalid arguments");
-	if (replace(argv[1], argv[2], argv[3]) == 1)
+	if (replacer(argv[1], argv[2], argv[3]) == 1)
 		return 1;
 	return 0;
 }

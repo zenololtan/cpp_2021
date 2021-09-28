@@ -6,18 +6,20 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:26:11 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/09/20 11:06:20 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/28 14:42:34 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieHorde.hpp"
+#include "Zombie.hpp"
 #include <iostream>
 
 int	main()
 {
-	ZombieHorde	zhorde(4);
-	std::cout << std::endl;
-	ZombieHorde	otherzhorde(5);
-	std::cout << std::endl;
+	int n = 5;
+	Zombie *zombies = zombieHorde(n, "zombies's");
+	
+	for(int i = 0; i < n; i++)
+		zombies[i].announce();
+	delete[] zombies;
 	return 0;
 }

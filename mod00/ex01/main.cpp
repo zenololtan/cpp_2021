@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/29 16:40:26 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/21 15:28:02 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/22 11:21:55 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ void	ft_giveinfo(class phonebook *pb, int i)
 	std::cout << "Surname: " << pb[i].phonebook::get_surname() << std::endl;
 	std::cout << "Nickname: " << pb[i].phonebook::get_nickname() << std::endl;
 	std::cout << "Number: " << pb[i].phonebook::get_number() << std::endl;
-	std::cout << "Those whacky funny goofy numbers on the back of ur bankpass: " << pb[i].phonebook::get_bankpass() << std::endl;
-	std::cout << "Darkest secret: " << pb[i].phonebook::get_darkestSecret() << std::endl;
+	std::cout << "Those whacky funny goofy numbers on the back of ur bankpass: ";
+	std::cout << pb[i].phonebook::get_bankpass() << std::endl;
+	std::cout << "Darkest secret: " << pb[i].phonebook::get_darkestSecret();
+	std::cout << std::endl;
 }
 
 void	ft_select(class phonebook *pb, int index)
