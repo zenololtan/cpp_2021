@@ -14,13 +14,11 @@ NAME = replace
 
 FILES =	main.cpp
 
-OUT = *.replace
+OUT = test1.txt.replace
 
 CC = clang++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-
-NAM = -o $(NAME)
 
 OBJDIR = obj/
 
@@ -31,17 +29,21 @@ OBJ := $(addprefix $(OBJDIR), $(FILES:%.cpp=%.o))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(FLAGS) $(NAM)
+	@echo "Compiling executable..."
+	@$(CC) $(OBJ) $(FLAGS) -o $(NAME)
 
 $(OBJDIR)%.o: %.cpp
 	@mkdir -p $(OBJDIR)
-	@$(CC) -c $(FLAGS) -o $@ $< 
+	@echo "compiling $@"
+	@$(CC) -c $(FLAGS) -o $@ $<
 
 clean:
+	@echo "Removing objects..."
 	@rm -rf $(OBJDIR)
 	@rm -f $(OUT)
 
 fclean: clean
+	@echo "Deleting executable..."
 	rm -f $(NAME)
 
 re: fclean all

@@ -22,6 +22,7 @@ class karen
 		void	info(void);
 		void	warning(void);
 		void	error(void);
+
 	public:
 		karen();
 		~karen();

@@ -21,9 +21,10 @@ int	Error(std::string error)
 	return 1;	
 }
 
-void	replace(std::string index, int begin, int end)
+void	replace(std::string *buff, int index, int len, std::string str)
 {
-	
+	buff->erase(index, len);
+	buff->insert(index, str);
 }
 
 int	replacer(std::string Filename, std::string s1, std::string s2)
@@ -43,11 +44,12 @@ int	replacer(std::string Filename, std::string s1, std::string s2)
 	while (std::getline(input, buff))
 	{
 		if (std::cin.eof())
-			exit(1);
+			return 1;
 		index = buff.find(s1);
 		while (index != std::string::npos)
 		{
-			buff.replace(index, strlen1 , s2);
+			buff.erase(index, strlen1);
+			buff.insert(index, s2);
 			index = buff.find(s1, index + strlen2);
 		}
 		output << buff;
