@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 11:34:51 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/29 14:03:46 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/29 22:13:16 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,18 @@ void	Karen::complain(std::string level)
 	list[2] = &Karen::warning;
 	list[3] = &Karen::error;
 
-	if (level == "DEBUG")
-		(this->*list[0])();
-	if (level == "INFO")
-		(this->*list[1])();
-	if (level == "WARNING")
-		(this->*list[2])();
-	if (level == "ERROR")
-		(this->*list[3])();
+	// if (level == "DEBUG")
+	// 	(this->*list[0])();
+	// if (level == "INFO")
+	// 	(this->*list[1])();
+	// if (level == "WARNING")
+	// 	(this->*list[2])();
+	// if (level == "ERROR")
+	// 	(this->*list[3])();
+	switch(atoi(level.c_str()))
+	{
+		case (const int)(atoi("DEBUG")):
+			(this->*list[0])();
+
+	}
 }
