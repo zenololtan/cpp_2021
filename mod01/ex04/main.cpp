@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:30:43 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/09/28 15:01:43 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/29 13:25:18 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ int	Error(std::string error)
 	std::cout << "Error" << std::endl;
 	std::cout << error << std::endl;
 	return 1;	
-}
-
-void	replace(std::string *buff, int index, int len, std::string str)
-{
-	buff->erase(index, len);
-	buff->insert(index, str);
 }
 
 int	replacer(std::string Filename, std::string s1, std::string s2)

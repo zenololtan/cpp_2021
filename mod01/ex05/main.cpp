@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Karen.hpp                                          :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/09/20 11:34:54 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/29 13:16:40 by ztan          ########   odam.nl         */
+/*   Created: 2021/09/20 11:34:56 by ztan          #+#    #+#                 */
+/*   Updated: 2021/09/29 11:52:25 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
-# include <iostream>
+#include "Karen.hpp"
 
-class Karen
+int	main(void)
 {
-	private:
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
-
-	public:
-		Karen();
-		~Karen();
-		Karen(const Karen &copy);
-		Karen& operator=(const Karen& copy);
-		void	complain(std::string level);
-};
-
-#endif
+	Karen	k;
+	// check invalid values
+	std::cout << "---Invalid values---" << std::endl;
+	k.complain("niks");
+	k.complain("");
+	std::cout << "---Valid values---" << std::endl;
+	// check valid values
+	k.complain("DEBUG");
+	k.complain("INFO");
+	k.complain("WARNING");
+	k.complain("ERROR");
+	std::cout << "---End---" << std::endl;
+	return 0;
+}

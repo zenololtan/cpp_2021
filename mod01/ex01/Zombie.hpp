@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:25:06 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/09/28 14:41:43 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/29 12:54:12 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Zombie
 		Zombie(){};
 		Zombie(const Zombie& copy);
 		Zombie&		operator=(const Zombie& copy);
-		~Zombie();
+		virtual		~Zombie();
 
 		void		setName(std::string name);
 		void		announce();

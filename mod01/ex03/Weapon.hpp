@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 00:30:25 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/09/20 11:56:28 by ztan          ########   odam.nl         */
+/*   Updated: 2021/09/29 13:13:08 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@
 
 class Weapon
 {
-private:
-	std::string	_type;
-public:
-	Weapon(std::string type);
-	const std::string&	getType();
-	void				setType(std::string type);
+	private:
+		std::string	_Type;
+
+	public:
+		Weapon(std::string type);
+		Weapon&				operator=(const Weapon& copy);
+		virtual				~Weapon(){};
+		const std::string&	getType();
+		void				setType(std::string type);
 };
 
 #endif

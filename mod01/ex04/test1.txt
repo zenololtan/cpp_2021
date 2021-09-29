@@ -1,4 +1,4 @@
-Hello, my name is ZenoZenoZeno
+Hello, my name is ZenoZenoZeno\n
 
 This is the testfile for my project.
 I hope this testfile is good enough for you.
