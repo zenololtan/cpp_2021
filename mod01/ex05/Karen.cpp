@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 11:34:51 by ztan          #+#    #+#                 */
-/*   Updated: 2021/09/29 14:03:04 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/01 20:07:47 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,27 @@ void	Karen::error(void)
 	std::cout << "manager now." << std::endl;
 }
 
+typedef	void(Karen::*func_t)(void);
+
+struct	Complaint
+{
+	func_t		func;
+	std::string	level;
+};
+
 void	Karen::complain(std::string level)
 {
-	typedef		void(Karen::*f)(void);
-	f			list[4];
-	
-	list[0] = &Karen::debug;
-	list[1] = &Karen::info;
-	list[2] = &Karen::warning;
-	list[3] = &Karen::error;
+	int amount = 0;
 
-	if (level == "DEBUG")
-		(this->*list[0])();
-	if (level == "INFO")
-		(this->*list[1])();
-	if (level == "WARNING")
-		(this->*list[2])();
-	if (level == "ERROR")
-		(this->*list[3])();
+	Complaint list[] = {
+		{&Karen::debug, "DEBUG"},
+		{&Karen::info, "INFO"},
+		{&Karen::warning, "WARNING"},
+		{&Karen::error, "ERROR"}
+	};
+	
+	amount = sizeof(list) / sizeof(*list);
+	for (int i = 0; i < amount; i++)
+		if (level == list[i].level)
+			(this->*list[i].func)();
 }
