@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:57 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/02 15:52:02 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/04 18:39:37 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,13 @@ class Fixed
 {
 	private:
 		static const int	_frac_bits = 8;
-		int					_fixed_point;
+		int					_raw_bits;
 
 	public:
 		Fixed();
 		Fixed(const Fixed &copy);
 		Fixed&	operator=(const Fixed &copy);
 		~Fixed();
-
-		Fixed&	operator>(const Fixed &copy) const;
-		Fixed&	operator<(const Fixed &copy) const;
-		Fixed&	operator>=(const Fixed &copy) const;
-		Fixed&	operator<=(const Fixed &copy) const;
-		Fixed&	operator==(const Fixed &copy) const;
-		Fixed&	operator!=(const Fixed &copy) const;
-		
-		Fixed	operator+(const Fixed &num) const;
-		Fixed	operator-(const Fixed &num) const;
-		Fixed	operator/(const Fixed &num) const;
-		Fixed	operator*(const Fixed &num) const;
 		
 		Fixed(const int input);
 		Fixed(const float input);
@@ -45,8 +33,23 @@ class Fixed
 		int		getRawBits() const;
 		float	toFloat() const;
 		int		toInt() const;
+		
+		bool	operator>(const Fixed &num) const;
+		bool	operator<(const Fixed &num) const;
+		bool	operator>=(const Fixed &num) const;
+		bool	operator<=(const Fixed &num) const;
+		bool	operator==(const Fixed &num) const;
+		bool	operator!=(const Fixed &num) const;
+		Fixed&	operator+(const Fixed &num);
+		Fixed&	operator-(const Fixed &num);
+		Fixed&	operator/(const Fixed &num);
+		Fixed&	operator*(const Fixed &num);
+		Fixed&	operator++();
+		Fixed&	operator--();
+		Fixed	operator++(int num);
+		Fixed	operator--(int num);
 };
 
-	std::ostream&	operator<<(std::ostream &out, const Fixed &copy);
+std::ostream&	operator<<(std::ostream &out, const Fixed &copy);
 
 #endif

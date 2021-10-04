@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:48 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/02 14:40:33 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/04 12:48:36 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class Fixed
 {
 	private:
 		static const int	_raw = 8;
-		int					_fixed_point;
+		int					_raw_bits;
 
 	public:
 		Fixed();
