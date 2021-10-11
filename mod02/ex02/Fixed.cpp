@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:55 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/04 18:39:34 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/11 21:43:40 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 Fixed::Fixed() : _raw_bits(0)
 {
-	std::cout << "Default constructor called." << std::endl;
+	// std::cout << "Default constructor called." << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called." << std::endl;
+	// std::cout << "Destructor called." << std::endl;
 }
 
 Fixed&		Fixed::operator=(const Fixed &copy)
 {
-	std::cout << "Assignation operator called." << std::endl;
+	// std::cout << "Assignation operator called." << std::endl;
 	_raw_bits = copy.getRawBits();
 	return *this;
 }
@@ -33,18 +33,18 @@ Fixed&		Fixed::operator=(const Fixed &copy)
 Fixed::Fixed(const int input)
 {
 	_raw_bits = input << _frac_bits;
-	std::cout << "Int constructor called." << std::endl;
+	// std::cout << "Int constructor called." << std::endl;
 }
 
 Fixed::Fixed(const float input)
 {
 	_raw_bits = roundf(input * (1 << _frac_bits));
-	std::cout << "Float constructor called." << std::endl;
+	// std::cout << "Float constructor called." << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-	std::cout << "Copy constructor called." << std::endl;
+	// std::cout << "Copy constructor called." << std::endl;
 	*this = copy;
 }
 
@@ -76,7 +76,6 @@ float		Fixed::toFloat() const
 int		Fixed::toInt() const
 {
 	float	out;
-
 	out = _raw_bits >> _frac_bits;
 	return out;
 }
@@ -155,26 +154,29 @@ Fixed&	Fixed::operator*(const Fixed &num)
 
 Fixed&	Fixed::operator++()
 {
-	_raw_bits += 1;
+	// std::cout << "raw bits " << _raw_bits << std::endl;
+	_raw_bits++;
 	return *this;
 }
 
 Fixed&	Fixed::operator--()
 {
-	_raw_bits -= 1;
+	_raw_bits--;
 	return *this;
 }
 
-Fixed	Fixed::operator++(int num)
+Fixed	Fixed::operator++(int)
 {
-	Fixed cpy(num);
-	_raw_bits++;
+	// std::cout << "raw bits " << _raw_bits << std::endl;
+	Fixed cpy(*this);
+	cpy._raw_bits++;
+	// std::cout << "raw bits " << _raw_bits << std::endl;
 	return cpy;
 }
 
-Fixed	Fixed::operator--(int num)
+Fixed	Fixed::operator--(int)
 {
-	Fixed cpy(num);
+	Fixed cpy(*this);
 	_raw_bits--;
 	return cpy;
 }

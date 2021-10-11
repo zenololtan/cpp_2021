@@ -1,274 +1,238 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2020/10/15 01:38:00 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/04 19:51:26 by ztan          ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Fixed.hpp"
 #include <iomanip>
 
-#define RESET   "\033[0m"
-#define BLACK   "\033[30m"      /* Black */
-#define RED     "\033[31m"      /* Red */
-#define GREEN   "\033[32m"      /* Green */
 #define YELLOW  "\033[33m"      /* Yellow */
-#define BLUE    "\033[34m"      /* Blue */
-#define MAGENTA "\033[35m"      /* Magenta */
-#define CYAN    "\033[36m"      /* Cyan */
-#define WHITE   "\033[37m"      /* White */
-#define BOLDBLACK   "\033[1m\033[30m"      /* Bold Black */
-#define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
-#define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
-#define BOLDYELLOW  "\033[1m\033[33m"      /* Bold Yellow */
-#define BOLDBLUE    "\033[1m\033[34m"      /* Bold Blue */
-#define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
-#define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
-#define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
+#define RESET   "\033[0m"
 
-void	incr_opss()
-{
-	std::cout << YELLOW << "a++ opp int" << RESET << std::endl;
-	Fixed a(1);
-	std::cout << "int(a++):" << a << ": ";
-	std::cout << (a++) << std::endl;
-	
-	std::cout << YELLOW << "a++ float" << RESET << std::endl;
-	Fixed a_float(1.05f);
-	std::cout << "int(a++):" << a_float << ": ";
-	std::cout << (a_float++) << std::endl;
-
-	std::cout << YELLOW << "++a opp int" << RESET << std::endl;
-	std::cout << "int(++a):" << a << ": ";
-	std::cout << (++a) << std::endl;
-	
-	std::cout << YELLOW << "++a float" << RESET << std::endl;
-	std::cout << "int(++a):" << a_float << ": ";
-	std::cout << (++a_float) << std::endl;
+void	SmallerThen(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "SmallerThen operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "<" << int_b << "): ";
+	std::cout << std::boolalpha << (int_a<int_b) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "<" << float_b << "): ";
+	std::cout << std::boolalpha << (float_a<float_b) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << "<" << float_b << "): ";
+	std::cout << std::boolalpha << (int_a<float_b) << std::endl;
 }
 
-void	div_times_opss()
-{
-	std::cout << YELLOW << "* opp int" << RESET << std::endl;
-	Fixed a(1);
-	Fixed b(2);
-	std::cout << "int(a * b):" << a << " and " << b << ": ";
-	std::cout << (a * b) << std::endl;
-	
-	std::cout << YELLOW << "* float" << RESET << std::endl;
-	Fixed a_float(1.05f);
-	Fixed b_float(2.09f);
-	std::cout << "int(a * b):" << a_float << " and " << b_float << ": ";
-	std::cout << (a_float * b_float) << std::endl;
-	
-	std::cout << YELLOW << " * opp mix" << RESET	<< std::endl;
-	std::cout << "int(a * b):" << a << " and " << a_float << ": ";
-	std::cout << (a * a_float) << std::endl;
-	
-	std::cout << YELLOW << " / opp int" << RESET	<< std::endl;
-	std::cout << "int(a / b):" << a << " and " << b << ": ";
-	std::cout << (a / b) << std::endl;
-	
-	std::cout << YELLOW << " / float" << RESET<< std::endl;
-	std::cout << "int(a / b):" << a_float << " and " << b_float << ": ";
-	std::cout << (a_float / b_float) << std::endl;
-	
-	std::cout << YELLOW << " / opp mix" << RESET	<< std::endl;
-	std::cout << "int(a / b):" << a << " and " << a_float << ": ";
-	std::cout << (a / a_float) << std::endl;
+void	BiggerThen(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "BiggerThen operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << ">" << int_b << "): ";
+	std::cout << std::boolalpha << (int_a>int_b) << std::endl;
+	std::cout << "Testcase float: (" << float_a << ">" << float_b << "): ";
+	std::cout << std::boolalpha << (float_a>float_b) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << ">" << float_b << "): ";
+	std::cout << std::boolalpha << (int_a>float_b) << std::endl;
 }
 
-void	plus_minus_opss()
-{
-	std::cout << YELLOW << " + opp int" << RESET	<< std::endl;
-	Fixed a(1);
-	Fixed b(2);
-	std::cout << "int(a + b):" << a << " and " << b << ": ";
-	std::cout << (a + b) << std::endl;
-	
-	std::cout << YELLOW << " + float" << RESET	<< std::endl;
-	Fixed a_float(1.05f);
-	Fixed b_float(2.09f);
-	std::cout << "int(a + b):" << a_float << " and " << b_float << ": ";
-	std::cout << (a_float + b_float) << std::endl;
-	
-	std::cout << YELLOW << " + opp mix" << RESET	<< std::endl;
-	std::cout << "int(a + b):" << a << " and " << a_float << ": ";
-	std::cout << (a + a_float) << std::endl;
-	
-	std::cout << YELLOW << " - opp int" << RESET	<< std::endl;
-	std::cout << "int(a - b):" << a << " and " << b << ": ";
-	std::cout << (a - b) << std::endl;
-	
-	std::cout << YELLOW << " - float" << RESET	<< std::endl;
-	std::cout << "int(a - b):" << a_float << " and " << b_float << ": ";
-	std::cout << (a_float - b_float) << std::endl;
-	
-	std::cout << YELLOW << " - opp mix" << RESET	<< std::endl;
-	std::cout << "int(a - b):" << a << " and " << a_float << ": ";
-	std::cout << (a - a_float) << std::endl;
+void	SmallerThenEquals(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "SmallerThenEquals operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << ">=" << int_b << "): ";
+	std::cout << std::boolalpha << (int_a>=int_b) << std::endl;
+	Fixed copy_int(int_a);
+	std::cout << "Testcase Equal (" << int_a << ")" << ">=" << copy_int<< ": ";
+	std::cout << std::boolalpha << (int_a>=copy_int) << std::endl;
+	std::cout << "Testcase float: (" << float_a << ">=" << float_b << "): ";
+	std::cout << std::boolalpha << (float_a>=float_b) << std::endl;
+	Fixed copy_float(float_a);
+	std::cout << "Testcase Equal (" << float_a << ")" << ">=" << copy_float<< ": ";
+	std::cout << std::boolalpha << (float_a>=copy_float) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << ">=" << float_b << "): ";
+	std::cout << std::boolalpha << (int_a>=float_b) << std::endl;
 }
 
-void	eq_opp()
-{
-	std::cout << YELLOW << " == opp int" << RESET	<< std::endl;
-	Fixed a(1);
-	Fixed b(2);
-	std::cout << "int(a==b):" << a << " and " << b << ": ";
-	std::cout << std::boolalpha << (a == b) << std::endl;
-	std::cout << "int(a==a):" << a << " and " << a << ": ";
-	std::cout << std::boolalpha << (a == a) << std::endl;
-	
-	std::cout << YELLOW << " == opp float" << RESET	<< std::endl;
-	Fixed a_float(1.05f);
-	Fixed b_float(2.09f);
-	std::cout << "int(a==b):" << a_float << " and " << b_float << ": ";
-	std::cout << std::boolalpha << (a_float == b_float) << std::endl;
-	std::cout << "int(a==a):" << a_float << " and " << a_float << ": ";
-	std::cout << std::boolalpha << (a_float == a_float) << std::endl;
-	
-	std::cout << YELLOW << " == opp mix" << RESET	<< std::endl;
-	Fixed copy(1.00000f);
-	std::cout << "int(a==b):" << a << " and " << a_float << ": ";
-	std::cout << std::boolalpha << (a == b_float) << std::endl;
-	std::cout << "int(a==tmp):" << a << " and " << copy << ": ";
-	std::cout << std::boolalpha << (a == copy) << std::endl;
-
-	std::cout << YELLOW << " != opp int" << RESET	<< std::endl;
-	std::cout << "int(a!=b):" << a << " and " << b << ": ";
-	std::cout << std::boolalpha << (a != b) << std::endl;
-	std::cout << "int(a!=a):" << a << " and " << a << ": ";
-	std::cout << std::boolalpha << (a != a) << std::endl;
-	
-	std::cout << YELLOW << " != opp float" << RESET	<< std::endl;
-	std::cout << "int(a!=b):" << a_float << " and " << b_float << ": ";
-	std::cout << std::boolalpha << (a_float != b_float) << std::endl;
-	std::cout << "int(a!=a):" << a_float << " and " << a_float << ": ";
-	std::cout << std::boolalpha << (a_float != a_float) << std::endl;
-	
-	std::cout << YELLOW << " != opp mix" << RESET	<< std::endl;
-	std::cout << "int(a!=b):" << a << " and " << a_float << ": ";
-	std::cout << std::boolalpha << (a != a_float) << std::endl;
-	std::cout << "int(a!=tmp):" << a << " and " << copy << ": ";
-	std::cout << std::boolalpha << (a != copy) << std::endl;
+void	BiggerThenEquals(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "BiggerThenEquals operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "<=" << int_b << "): ";
+	std::cout << std::boolalpha << (int_a<=int_b) << std::endl;
+	Fixed copy_int(int_a);
+	std::cout << "Testcase Equal (" << int_a << ")" << "<=" << copy_int<< ": ";
+	std::cout << std::boolalpha << (int_a<=copy_int) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "<=" << float_b << "): ";
+	std::cout << std::boolalpha << (float_a<=float_b) << std::endl;
+	Fixed copy_float(float_a);
+	std::cout << "Testcase Equal (" << float_a << ")" << "<=" << copy_float<< ": ";
+	std::cout << std::boolalpha << (float_a<=copy_float) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << "<=" << float_b << "): ";
+	std::cout << std::boolalpha << (int_a<=float_b) << std::endl;
 }
 
-void	comp_equals_opps()
-{
-	std::cout << YELLOW << "compare eq opp int" << RESET	<< std::endl;
-	Fixed a(1);
-	Fixed b(2);
-	Fixed copy(a);
-	std::cout << "int(a>=b):" << a << " and " << b << ": ";
-	std::cout << std::boolalpha << (a >= b) << std::endl;
-	std::cout << "int(a<=b):" << a << " and " << b << ": ";
-	std::cout << std::boolalpha << (a <= b) << std::endl;
-	std::cout << "equal " << a << " <= " << copy << ":";
-	std::cout << std::boolalpha << (a <= copy) << std::endl;
-	
-	std::cout << YELLOW << "compare eq opp float" << RESET	<< std::endl;
-	Fixed a_float(1.05f);
-	Fixed b_float(2.09f);
-	Fixed copy1(a_float);
-	std::cout << "int(a>=b):" << a_float << " and " << b_float << ": ";
-	std::cout << std::boolalpha << (a_float >= b_float) << std::endl;
-	std::cout << "int(a<=b):" << a_float << " and " << b_float << ": ";
-	std::cout << std::boolalpha << (a_float <= b_float) << std::endl;
-	std::cout << "equal " << a_float << " <= " << copy1 << ":";
-	std::cout << std::boolalpha << (a_float <= copy1) << std::endl;
-	
-	std::cout << YELLOW << "compare eq opp mix" << RESET	<< std::endl;
-	Fixed copy2(1.00000f);
-	std::cout << "int(a>=b):" << a << " and " << a_float << ": ";
-	std::cout << std::boolalpha << (a >= a_float) << std::endl;
-	std::cout << "int(a<=b):" << a_float << " and " << b << ": ";
-	std::cout << std::boolalpha << (a_float <= b) << std::endl;
-	std::cout << "equal " << a << " <= " << copy2 << ":";
-	std::cout << std::boolalpha << (a <= copy2) << std::endl;
+void	Equals(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "Equals operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "==" << int_b << "): ";
+	std::cout << std::boolalpha << (int_a==int_b) << std::endl;
+	Fixed copy_int(int_a);
+	std::cout << "Testcase Equal (" << int_a << ")" << "==" << copy_int<< ": ";
+	std::cout << std::boolalpha << (int_a==copy_int) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "==" << float_b << "): ";
+	std::cout << std::boolalpha << (float_a==float_b) << std::endl;
+	Fixed copy_float(float_a);
+	std::cout << "Testcase Equal (" << float_a << ")" << "==" << copy_float<< ": ";
+	std::cout << std::boolalpha << (float_a==copy_float) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << "==" << float_b << "): ";
+	std::cout << std::boolalpha << (int_a==float_b) << std::endl;
 }
 
-void	compare_opss()
-{
-	std::cout << YELLOW << "compare opp int" << RESET	<< std::endl;
-	Fixed a(1);
-	Fixed b(2);
-	std::cout << "int(a>b):" << a << " and " << b << ": ";
-	std::cout << std::boolalpha << (a > b) << std::endl;
-	std::cout << "int(a<b):" << a << " and " << b << ": ";
-	std::cout << std::boolalpha << (a < b) << std::endl;
-	
-	std::cout << YELLOW << "compare opp float" << RESET	<< std::endl;
-	Fixed a_float(1.05f);
-	Fixed b_float(2.09f);
-	std::cout << "int(a>b):" << a_float << " and " << b_float << ": ";
-	std::cout << std::boolalpha << (a_float > b_float) << std::endl;
-	std::cout << "int(a<b):" << a_float << " and " << b_float << ": ";
-	std::cout << std::boolalpha << (a_float < b_float) << std::endl;
-	
-	std::cout << YELLOW << "compare opp mix" << RESET	<< std::endl;
-	std::cout << "int(a>b):" << a << " and " << a_float << ": ";
-	std::cout << std::boolalpha << (a > a_float) << std::endl;
-	std::cout << "int(a<b):" << a_float << " and " << b << ": ";
-	std::cout << std::boolalpha << (a_float < b) << std::endl;
+void	NotEquals(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "NotEquals operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "!=" << int_b << "): ";
+	std::cout << std::boolalpha << (int_a!=int_b) << std::endl;
+	Fixed copy_int(int_a);
+	std::cout << "Testcase Equal (" << int_a << ")" << "!=" << copy_int<< ": ";
+	std::cout << std::boolalpha << (int_a!=copy_int) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "!=" << float_b << "): ";
+	std::cout << std::boolalpha << (float_a!=float_b) << std::endl;
+	Fixed copy_float(float_a);
+	std::cout << "Testcase Equal (" << float_a << ")" << "!=" << copy_float<< ": ";
+	std::cout << std::boolalpha << (float_a!=copy_float) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << "!=" << float_b << "): ";
+	std::cout << std::boolalpha << (int_a!=float_b) << std::endl;
 }
 
-void	normal_funcs()
-{
-	std::cout << YELLOW << "standard constructor" << RESET	<< std::endl;
+void	Plus(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "Plus operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "+" << int_b << "): ";
+	std::cout << (int_a+int_b) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "+" << float_b << "): ";
+	std::cout << (float_a+float_b) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << "+" << float_b << "): ";
+	std::cout << (int_a+float_b) << std::endl;
+}
+
+void	Minus(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "Minus operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "-" << int_b << "): ";
+	std::cout << (int_a-int_b) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "-" << float_b << "): ";
+	std::cout << (float_a-float_b) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << "-" << float_b << "): ";
+	std::cout << (int_a-float_b) << std::endl;
+}
+
+void	Multiply(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "Multiply operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "*" << int_b << "): ";
+	std::cout << (int_a*int_b) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "*" << float_b << "): ";
+	std::cout << (float_a*float_b) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << "*" << float_b << "): ";
+	std::cout << (int_a*float_b) << std::endl;
+}
+
+void	Divide(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "Divide operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "/" << int_b << "): ";
+	std::cout << (int_a/int_b) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "/" << float_b << "): ";
+	std::cout << (float_a/float_b) << std::endl;
+	std::cout << "Testcase mix: (" << int_a << "/" << float_b << "): ";
+	std::cout << (int_a/float_b) << std::endl;
+}
+
+void	PreIncrement(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "PreIncrement operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "++): " << (int_a++) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "++): " << (float_a++) << std::endl;
+}
+
+void	PreDecrement(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "PreDecrement operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << "--): " << (int_a--) << std::endl;
+	std::cout << "Testcase float: (" << float_a << "--): " << (float_a--) << std::endl;
+}
+
+void	PostIncrement(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "PostIncrement operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << "++" << int_a << "): " << (++int_a) << std::endl;
+	std::cout << "Testcase float: (" << "++" << float_a << "): " << (++float_a) << std::endl;
+}
+
+void	PostDecrement(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+	std::cout << YELLOW << "PostDecrement operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << "--" << int_a << "): " << (--int_a) << std::endl;
+	std::cout << "Testcase float: (" << "--" << float_a << "): " << (--float_a) << std::endl;
+}
+
+int main( void ) {
 	Fixed a;
-	std::cout << "standard:" << a << std::endl;
-	
-	std::cout << YELLOW << "copy constructor" << RESET	<< std::endl;
-	Fixed copy_int(Fixed(5));
-	std::cout << "int: " << copy_int << std::endl;
-	Fixed copy_float(Fixed(5.5f));
-	std::cout << "float: " << copy_float << std::endl;
-	Fixed copy_both(Fixed(5.5f) * Fixed(2));
-	std::cout << "float and int: " << copy_both << std::endl; // wrm is dit 2816
-	
-	std::cout << YELLOW << "int constructor" << RESET	<< std::endl;
-	Fixed b(10);
-	std::cout << b << std::endl;
-	
-	std::cout << YELLOW << "float constructor" << RESET	<< std::endl;
-	Fixed c(42.069f); // 42.0703??
-	std::cout << c << std::endl;
-	
-	std::cout << YELLOW << "assign opp" << RESET	<< std::endl;
-	Fixed assign;
-	assign = c;
-	std::cout << "Copy:" << assign << ", copied:" << c << std::endl;
-}
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-int	main()
-{
-	// Fixed a;
-	// Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	// std::cout << a << std::endl;
-	// std::cout << ++a << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << b << std::endl;
-	// std::cout << Fixed::max( a, b ) << std::endl;
-	std::cout << MAGENTA << "---------------- normal_funcs ----------------" << RESET << std::endl;
-	normal_funcs();
-	std::cout << MAGENTA << "---------------- compare_opss ----------------" << RESET << std::endl;
-	compare_opss();
-	std::cout << MAGENTA << "---------------- comp_equals_opps ----------------" << RESET << std::endl;
-	comp_equals_opps();
-	std::cout << MAGENTA << "---------------- eq_opp ----------------" << RESET << std::endl;
-	eq_opp();
-	std::cout << MAGENTA << "---------------- plus_minus_opss ----------------" << RESET << std::endl;
-	plus_minus_opss();
-	std::cout << MAGENTA << "---------------- div_times_opss ----------------" << RESET << std::endl;
-	div_times_opss();
-	std::cout << MAGENTA << "---------------- incr_opss ----------------" << RESET << std::endl;
-	incr_opss();
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+//	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << "TEST CASES" << std::endl;
+	SmallerThen();
+	BiggerThen();
+	SmallerThenEquals();
+	BiggerThenEquals();
+	Equals();
+	NotEquals();
+	Plus();
+	Minus();
+	Multiply();
+	Divide();
+	PreIncrement();
+	PreDecrement();
+	PostIncrement();
+	PostDecrement();
 	return 0;
 }
