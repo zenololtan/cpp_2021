@@ -4,6 +4,33 @@
 #define YELLOW  "\033[33m"      /* Yellow */
 #define RESET   "\033[0m"
 
+void	MinMax(){
+	Fixed int_a(1);
+	Fixed int_b(3);
+	Fixed float_a(1.05f);
+	Fixed float_b(2.09f);
+
+	std::cout << YELLOW << "Min operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << ", " << int_b << "): ";
+	std::cout << Fixed::min(int_a, int_b) << std::endl;
+	std::cout << "Testcase float: (" << float_a << ", " << float_b << "): ";
+	std::cout << Fixed::min(float_a, float_b) << std::endl;
+	std::cout << "Testcase int: (" << int_b << ", " << int_a << "): ";
+	std::cout << Fixed::min(int_b, int_a) << std::endl;
+	std::cout << "Testcase float: (" << float_b << ", " << float_a << "): ";
+	std::cout << Fixed::min(float_b, float_a) << std::endl;
+
+	std::cout << YELLOW << "Max operator" << RESET << std::endl;
+	std::cout << "Testcase int: (" << int_a << ", " << int_b << "): ";
+	std::cout << Fixed::max(int_a, int_b) << std::endl;
+	std::cout << "Testcase float: (" << float_a << ", " << float_b << "): ";
+	std::cout << Fixed::max(float_a, float_b) << std::endl;
+	std::cout << "Testcase int: (" << int_b << ", " << int_a << "): ";
+	std::cout << Fixed::max(int_b, int_a) << std::endl;
+	std::cout << "Testcase float: (" << float_b << ", " << float_a << "): ";
+	std::cout << Fixed::max(float_b, float_a) << std::endl;
+}
+
 void	SmallerThen(){
 	Fixed int_a(1);
 	Fixed int_b(3);
@@ -218,7 +245,7 @@ int main( void ) {
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-//	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 	std::cout << "TEST CASES" << std::endl;
 	SmallerThen();
 	BiggerThen();
@@ -234,5 +261,6 @@ int main( void ) {
 	PreDecrement();
 	PostIncrement();
 	PostDecrement();
+	MinMax();
 	return 0;
 }

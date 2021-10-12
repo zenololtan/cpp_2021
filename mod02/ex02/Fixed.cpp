@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:55 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/11 21:43:40 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/12 21:45:55 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,17 +168,30 @@ Fixed	Fixed::operator--(int)
 	return cpy;
 }
 
-Fixed&  Fixed::min(Fixed &num_a, Fixed &num_b) const
+Fixed&  Fixed::min(Fixed &num_a, Fixed &num_b)
 {
-	if (num_a._raw_bits > num_b._raw_bits)
-		return num_b;
-	return num_a;
+	if (num_a._raw_bits < num_b._raw_bits)
+		return num_a;
+	return num_b;
 }
 
-//Fixed&  Fixed::min(const Fixed &num_a, const Fixed &num_b) const {}
+const Fixed&  Fixed::min(const Fixed &num_a, const Fixed &num_b)
+{
+	if (num_a._raw_bits < num_b._raw_bits)
+		return num_a;
+	return num_b;
+}
 
-//Fixed&  Fixed::max(Fixed &num_a, Fixed &num_b) const {}
+Fixed&  Fixed::max(Fixed &num_a, Fixed &num_b)
+{
+	if (num_a._raw_bits > num_b._raw_bits)
+		return num_a;
+	return num_b;
+}
 
-//Fixed&  Fixed::max(const Fixed &num_a, const Fixed &num_b) const{}
-
-	
+const Fixed&  Fixed::max(const Fixed &num_a, const Fixed &num_b)
+{
+	if (num_a._raw_bits > num_b._raw_bits)
+		return num_a;
+	return num_b;
+}	

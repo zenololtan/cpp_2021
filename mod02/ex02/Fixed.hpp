@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:57 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/07 16:07:45 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/12 21:43:20 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,14 @@ class Fixed
 		Fixed	operator++(int);
 		Fixed	operator--(int);
 
-		Fixed&	min(Fixed &num_a, Fixed &num_b) const;
-		Fixed&	min(const Fixed &num_a, const Fixed &num_b) const;
+		static Fixed&	min(Fixed &num_a, Fixed &num_b);
+		static const Fixed&	min(const Fixed &num_a, const Fixed &num_b);
 
-		Fixed&	max(Fixed &num_a, Fixed &num_b) const;
-		Fixed&	max(const Fixed &num_a, const Fixed &num_b) const;
+		static Fixed&	max(Fixed &num_a, Fixed &num_b);
+		static const Fixed&	max(const Fixed &num_a, const Fixed &num_b);
 };
 
 std::ostream&	operator<<(std::ostream &out, const Fixed &copy);
+
 
 #endif
