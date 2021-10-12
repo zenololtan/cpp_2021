@@ -50,6 +50,12 @@ class Fixed
 		Fixed&	operator--();
 		Fixed	operator++(int);
 		Fixed	operator--(int);
+
+		Fixed&	min(Fixed &num_a, Fixed &num_b) const;
+		Fixed&	min(const Fixed &num_a, const Fixed &num_b) const;
+
+		Fixed&	max(Fixed &num_a, Fixed &num_b) const;
+		Fixed&	max(const Fixed &num_a, const Fixed &num_b) const;
 };
 
 std::ostream&	operator<<(std::ostream &out, const Fixed &copy);

@@ -13,19 +13,12 @@
 #include "Fixed.hpp"
 #include <cmath>
 
-Fixed::Fixed() : _raw_bits(0)
-{
-	// std::cout << "Default constructor called." << std::endl;
-}
+Fixed::Fixed() : _raw_bits(0){}
 
-Fixed::~Fixed()
-{
-	// std::cout << "Destructor called." << std::endl;
-}
+Fixed::~Fixed(){}
 
 Fixed&		Fixed::operator=(const Fixed &copy)
 {
-	// std::cout << "Assignation operator called." << std::endl;
 	_raw_bits = copy.getRawBits();
 	return *this;
 }
@@ -33,18 +26,15 @@ Fixed&		Fixed::operator=(const Fixed &copy)
 Fixed::Fixed(const int input)
 {
 	_raw_bits = input << _frac_bits;
-	// std::cout << "Int constructor called." << std::endl;
 }
 
 Fixed::Fixed(const float input)
 {
 	_raw_bits = roundf(input * (1 << _frac_bits));
-	// std::cout << "Float constructor called." << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-	// std::cout << "Copy constructor called." << std::endl;
 	*this = copy;
 }
 
@@ -142,41 +132,53 @@ Fixed&	Fixed::operator-(const Fixed &num)
 
 Fixed&	Fixed::operator/(const Fixed &num)
 {
-	_raw_bits = _raw_bits / num.getRawBits();
+	_raw_bits /= num.toInt();
 	return *this;
 }
 
 Fixed&	Fixed::operator*(const Fixed &num)
 {
-	_raw_bits = _raw_bits * num.getRawBits();
+	_raw_bits *= num.toInt();
 	return *this;
 }
 
 Fixed&	Fixed::operator++()
 {
-	// std::cout << "raw bits " << _raw_bits << std::endl;
-	_raw_bits++;
+	_raw_bits += 1 << _frac_bits;
 	return *this;
 }
 
 Fixed&	Fixed::operator--()
 {
-	_raw_bits--;
+	_raw_bits -= 1 << _frac_bits;
 	return *this;
 }
 
 Fixed	Fixed::operator++(int)
 {
-	// std::cout << "raw bits " << _raw_bits << std::endl;
 	Fixed cpy(*this);
-	cpy._raw_bits++;
-	// std::cout << "raw bits " << _raw_bits << std::endl;
+	cpy._raw_bits += 1 << _frac_bits;
 	return cpy;
 }
 
 Fixed	Fixed::operator--(int)
 {
 	Fixed cpy(*this);
-	_raw_bits--;
+	_raw_bits -= 1 << _frac_bits;
 	return cpy;
 }
+
+Fixed&  Fixed::min(Fixed &num_a, Fixed &num_b) const
+{
+	if (num_a._raw_bits > num_b._raw_bits)
+		return num_b;
+	return num_a;
+}
+
+//Fixed&  Fixed::min(const Fixed &num_a, const Fixed &num_b) const {}
+
+//Fixed&  Fixed::max(Fixed &num_a, Fixed &num_b) const {}
+
+//Fixed&  Fixed::max(const Fixed &num_a, const Fixed &num_b) const{}
+
+	
