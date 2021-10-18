@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:55 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/18 23:21:07 by zenotan       ########   odam.nl         */
+/*   Updated: 2021/10/18 23:26:33 by zenotan       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,4 +199,4 @@ const Fixed&  Fixed::max(const Fixed &num_a, const Fixed &num_b)
 	if (num_a._raw_bits > num_b._raw_bits)
 		return num_a;
 	return num_b;
-}	
+}
