@@ -71,7 +71,7 @@ int		Fixed::toInt() const
 	return out;
 }
 
-bool	Fixed::operator>(const Fixed &num) const
+bool		Fixed::operator>(const Fixed &num) const
 {
 	if (_raw_bits > num.getRawBits())
 		return true;
@@ -79,7 +79,7 @@ bool	Fixed::operator>(const Fixed &num) const
 		return false;
 }
 
-bool	Fixed::operator<(const Fixed &num) const
+bool		Fixed::operator<(const Fixed &num) const
 {
 	if (_raw_bits < num.getRawBits())
 		return true;
@@ -87,7 +87,7 @@ bool	Fixed::operator<(const Fixed &num) const
 		return false;
 }
 
-bool	Fixed::operator>=(const Fixed &num) const
+bool		Fixed::operator>=(const Fixed &num) const
 {
 	if (_raw_bits >= num.getRawBits())
 		return true;
@@ -95,7 +95,7 @@ bool	Fixed::operator>=(const Fixed &num) const
 		return false;
 }
 
-bool	Fixed::operator<=(const Fixed &num) const
+bool		Fixed::operator<=(const Fixed &num) const
 {
 	if (_raw_bits <= num.getRawBits())
 		return true;
@@ -103,7 +103,7 @@ bool	Fixed::operator<=(const Fixed &num) const
 		return false;
 }
 
-bool	Fixed::operator==(const Fixed &num) const
+bool		Fixed::operator==(const Fixed &num) const
 {
 	if (_raw_bits == num.getRawBits())
 		return true;
@@ -111,7 +111,7 @@ bool	Fixed::operator==(const Fixed &num) const
 		return false;
 }
 
-bool	Fixed::operator!=(const Fixed &num) const
+bool		Fixed::operator!=(const Fixed &num) const
 {
 	if (_raw_bits != num.getRawBits())
 		return true;
@@ -119,57 +119,61 @@ bool	Fixed::operator!=(const Fixed &num) const
 		return false;
 }
 
-Fixed&	Fixed::operator+(const Fixed &num)
+Fixed		Fixed::operator+(const Fixed &num) const
 {
-	_raw_bits += num.getRawBits();
-	return *this;
+	Fixed	cpy;
+	cpy._raw_bits = _raw_bits + num.getRawBits();
+	return cpy;
 }
 
-Fixed&	Fixed::operator-(const Fixed &num)
+Fixed		Fixed::operator-(const Fixed &num) const
 {
-	_raw_bits -= num.getRawBits();
-	return *this;
+	Fixed	cpy;
+	cpy._raw_bits = _raw_bits - num.getRawBits();
+	return cpy;
 }
 
-Fixed&	Fixed::operator/(const Fixed &num)
+Fixed		Fixed::operator/(const Fixed &num) const
 {
-	_raw_bits /= num.toInt();
-	return *this;
+	Fixed	cpy;
+	cpy._raw_bits = _raw_bits / num.toInt();
+	return cpy;
 }
 
-Fixed&	Fixed::operator*(const Fixed &num)
+Fixed		Fixed::operator*(const Fixed &num) const
 {
-	_raw_bits *= num.toInt();
-	return *this;
+	Fixed	cpy;
+	cpy._raw_bits = _raw_bits * num.toInt();
+	return cpy;
 }
 
-Fixed&	Fixed::operator++()
+Fixed&		Fixed::operator++()
 {
 	_raw_bits += 1 << _frac_bits;
 	return *this;
 }
 
-Fixed&	Fixed::operator--()
+Fixed&		Fixed::operator--()
 {
 	_raw_bits -= 1 << _frac_bits;
 	return *this;
 }
 
-Fixed	Fixed::operator++(int)
+Fixed		Fixed::operator++(int)
 {
 	Fixed cpy(*this);
 	cpy._raw_bits += 1 << _frac_bits;
 	return cpy;
 }
 
-Fixed	Fixed::operator--(int)
+Fixed		Fixed::operator--(int)
 {
 	Fixed cpy(*this);
 	_raw_bits -= 1 << _frac_bits;
 	return cpy;
 }
 
-Fixed&  Fixed::min(Fixed &num_a, Fixed &num_b)
+Fixed&  	Fixed::min(Fixed &num_a, Fixed &num_b)
 {
 	if (num_a._raw_bits < num_b._raw_bits)
 		return num_a;
@@ -183,7 +187,7 @@ const Fixed&  Fixed::min(const Fixed &num_a, const Fixed &num_b)
 	return num_b;
 }
 
-Fixed&  Fixed::max(Fixed &num_a, Fixed &num_b)
+Fixed&  	Fixed::max(Fixed &num_a, Fixed &num_b)
 {
 	if (num_a._raw_bits > num_b._raw_bits)
 		return num_a;
