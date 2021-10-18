@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:57 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/12 21:43:20 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/18 22:09:40 by zenotan       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ class Fixed
 		bool	operator==(const Fixed &num) const;
 		bool	operator!=(const Fixed &num) const;
 		
-		Fixed&	operator+(const Fixed &num);
-		Fixed&	operator-(const Fixed &num);
-		Fixed&	operator/(const Fixed &num);
-		Fixed&	operator*(const Fixed &num);
+		Fixed	operator+(const Fixed &num) const;
+		Fixed	operator-(const Fixed &num) const;
+		Fixed	operator/(const Fixed &num) const;
+		Fixed	operator*(const Fixed &num) const;
 		
 		Fixed&	operator++();
 		Fixed&	operator--();

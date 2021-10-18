@@ -1,5 +1,23 @@
 #include "Point.hpp"
 
+void	correct_test_last()
+{
+	Point a(0.5f, 0.5f);
+	Point b(1.1f, 3.1f);
+	Point c(3.6f, 1.8f);
+	Point pt(3.5f, 1.8f);
+
+	std::cout << "--------correct test last--------" << std::endl; 
+	std::cout << "a:" << a << std::endl;
+	std::cout << "b:" << b << std::endl;
+	std::cout << "c:" << c << std::endl;
+	std::cout << "pt:" << pt << std::endl;
+	if (bsp(a, b, c, pt))
+		std::cout << "Yes\n";
+	else
+		std::cout << "No\n";
+}
+
 void	incorrect_testmix()
 {
 	Point a(0.5f, 0.5f);
@@ -113,5 +131,6 @@ int	main()
 	incorrect_test1();
 	correct_testmix();
 	incorrect_testmix();
+	correct_test_last();
 	return (0);
 }

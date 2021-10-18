@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:55 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/12 21:45:55 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/18 23:21:07 by zenotan       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,14 +136,14 @@ Fixed		Fixed::operator-(const Fixed &num) const
 Fixed		Fixed::operator/(const Fixed &num) const
 {
 	Fixed	cpy;
-	cpy._raw_bits = _raw_bits / num.toInt();
+	cpy._raw_bits = _raw_bits / num.toFloat();
 	return cpy;
 }
 
 Fixed		Fixed::operator*(const Fixed &num) const
 {
 	Fixed	cpy;
-	cpy._raw_bits = _raw_bits * num.toInt();
+	cpy._raw_bits = _raw_bits * num.toFloat();
 	return cpy;
 }
 
