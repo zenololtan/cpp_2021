@@ -112,6 +112,7 @@ void	correct_test()
 	Point b(1, 3);
 	Point c(3, 1);
 	Point pt(3, 1);
+
 	std::cout << "--------correct test--------" << std::endl; 
 	std::cout << "a:" << a << std::endl;
 	std::cout << "b:" << b << std::endl;

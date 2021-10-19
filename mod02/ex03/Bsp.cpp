@@ -33,6 +33,7 @@ bool	same_side(Point const p1, Point const a, Point const b, Point const c)
 
 bool    bsp(Point const a, Point const b, Point const c, Point const pt)
 {
+	std::cout << "b after passing it as arg: " << b << std::endl;
 	if (same_side(pt, a, b, c) && same_side(pt, b, a, c) && same_side(pt, c, a, b))
 		return true;
 	else

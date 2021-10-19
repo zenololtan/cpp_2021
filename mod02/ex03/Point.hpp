@@ -6,13 +6,13 @@
 class	Point
 {
 	private:
-		Fixed _x;
-		Fixed _y;
+		Fixed const _x;
+		Fixed const _y;
+		Point&	operator=(const Point &cpy);
 
 	public:
 		Point();
 		~Point();
-		Point&	operator=(const Point &cpy);
 		Point(const Point &cpy);
 		Point(float x, float y);
 
@@ -21,6 +21,6 @@ class	Point
 };
 
 std::ostream&   operator<<(std::ostream &out, const Point &cpy);
-bool	bsp( Point const a, Point const b, Point const c, Point const point);
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

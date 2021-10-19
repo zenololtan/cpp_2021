@@ -10,15 +10,12 @@ Point&	Point::operator=(const Point &cpy)
 {
 	if (this != &cpy)
 	{
-		this->_x = cpy._x;
-		this->_y = cpy._y;
 	}
 	return *this;
 }
 
-Point::Point(const Point &cpy)
+Point::Point(const Point &cpy) : _x(cpy._x), _y(cpy._y)
 {
-        *this = cpy;
 }
 
 std::ostream&   operator<<(std::ostream &out, const Point &cpy)
