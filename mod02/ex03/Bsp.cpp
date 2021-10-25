@@ -1,5 +1,4 @@
 #include "Point.hpp"
-//Why did they make the x and y in point const...
 
 Fixed	cross_product(Fixed const Ax, Fixed const Ay, Fixed const Bx, Fixed const By)
 {
