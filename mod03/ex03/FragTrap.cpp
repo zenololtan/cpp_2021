@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:48:43 by ztan          #+#    #+#                 */
-/*   Updated: 2021/10/19 21:56:27 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 14:48:28 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ FragTrap::~FragTrap()
 {
 	std::cout << RESET << "FragTrap destructor called: xd im dead "
 		 << YELLOW << _Name << RESET << " has been destroyed" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &old)
+{
+	*this = old;
+}
+
+FragTrap&	FragTrap::operator=(const FragTrap &old)
+{
+	if (this != &old)
+	{
+		_Name = old._Name;
+		_Hit_points = old._Hit_points;
+		_Energy_points = old._Energy_points;
+		_Attack_damage= old._Attack_damage;
+	}
+	return *this;
 }
 
 void	FragTrap::attack(std::string const &target)

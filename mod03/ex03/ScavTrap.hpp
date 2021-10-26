@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 15:28:40 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/19 21:57:52 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 17:19:47 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ class ScavTrap : virtual public ClapTrap
 	public:
 		ScavTrap(){};
 		ScavTrap(const std::string name);
+		ScavTrap&	operator=(const ScavTrap &ref);
+		ScavTrap(const ScavTrap &ref);
 		virtual ~ScavTrap();
 
 		virtual void	attack(std::string const &target);
-		void			guardGate();
+		void	guardGate();
 };
 
 #endif

@@ -6,12 +6,17 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:49:28 by ztan          #+#    #+#                 */
-/*   Updated: 2021/10/19 20:49:30 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 17:28:03 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap() : _Name("..."), _Hit_points(0), _Energy_points(0), _Attack_damage(0)
+{
+	std::cout << RESET << "Default ClapTrap constructor called" << std::endl;
+}
 
 ClapTrap::ClapTrap(const std::string name) : _Name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0)
 {

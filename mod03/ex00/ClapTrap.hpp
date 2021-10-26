@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:49:31 by ztan          #+#    #+#                 */
-/*   Updated: 2021/10/19 20:49:32 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 17:27:52 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class ClapTrap
 		ClapTrap();
 
 	public:
+		ClapTrap();
 		ClapTrap(const std::string name);
 		~ClapTrap();
 		ClapTrap&	operator=(const ClapTrap &ref);
