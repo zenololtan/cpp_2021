@@ -6,12 +6,22 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:48:43 by ztan          #+#    #+#                 */
-/*   Updated: 2021/10/26 14:48:28 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 17:39:19 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
+
+FragTrap::FragTrap()
+{
+	_Name = "Default FragTrap const";
+	_Hit_points = 100;
+	_Energy_points = 100;
+	_Attack_damage = 30;
+	std::cout << RESET << "FragTrap constructor called: High five.. "
+		 << YELLOW << _Name << RESET << " has been made" << std::endl;
+}
 
 FragTrap::FragTrap(const std::string name)
 {

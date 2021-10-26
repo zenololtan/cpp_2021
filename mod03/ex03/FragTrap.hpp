@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:48:45 by ztan          #+#    #+#                 */
-/*   Updated: 2021/10/26 17:19:12 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 17:40:18 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 class FragTrap : virtual public ClapTrap
 {
 	public:
-		FragTrap(){};
+		FragTrap();
 		FragTrap(const std::string name);
 		FragTrap&	operator=(const FragTrap &ref);
 		FragTrap(const FragTrap &ref);
 		virtual ~FragTrap();
 
 		virtual void	attack(std::string const &target);
-		void	highFivesGuys(void);
+		void			highFivesGuys(void);
 };
 
 #endif

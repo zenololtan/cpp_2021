@@ -6,12 +6,22 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 15:28:37 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/26 14:39:52 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 17:39:03 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap()
+{
+	_Name = "default scav const";
+	_Hit_points = 100;
+	_Energy_points = 50;
+	_Attack_damage = 20;
+	std::cout << RESET << "ScavTrap constructor called: beep boop \"I will keep gates or smthing idk\" "
+		 << YELLOW << _Name << RESET << " has been made" << std::endl;
+}
 
 ScavTrap::ScavTrap(const std::string name)
 {
