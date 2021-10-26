@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:55 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/18 23:26:33 by zenotan       ########   odam.nl         */
+/*   Updated: 2021/10/26 14:14:26 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 Fixed::Fixed() : _raw_bits(0){}
 
 Fixed::~Fixed(){}
+
+Fixed::Fixed(const Fixed &copy)
+{
+	*this = copy;
+}
 
 Fixed&		Fixed::operator=(const Fixed &copy)
 {
@@ -32,11 +37,6 @@ Fixed::Fixed(const int input)
 Fixed::Fixed(const float input)
 {
 	_raw_bits = roundf(input * (1 << _frac_bits));
-}
-
-Fixed::Fixed(const Fixed &copy)
-{
-	*this = copy;
 }
 
 std::ostream&	operator<<(std::ostream &out, const Fixed &copy)

@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:45 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/04 12:48:35 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 14:14:56 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ Fixed::Fixed(const Fixed &copy)
 Fixed&	Fixed::operator=(const Fixed &copy)
 {
 	std::cout << "Assignation operator called." << std::endl;
-	_raw_bits = copy.getRawBits();
+	if (this != &copy)
+		_raw_bits = copy.getRawBits();
 	return *this;
 }
 

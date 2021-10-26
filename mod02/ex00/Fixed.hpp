@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:48 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/04 12:48:36 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 14:15:06 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Fixed
 		Fixed&	operator=(const Fixed &copy);
 
 		void	setRawBits(int const raw);
-		int	getRawBits() const;
+		int		getRawBits() const;
 };
 
 #endif
