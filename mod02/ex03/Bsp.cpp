@@ -1,39 +1,18 @@
 #include "Point.hpp"
 
-Fixed	dot_product(Fixed const Ax, Fixed const Ay, Fixed const Bx, Fixed const By)
+bool    bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	Fixed	mp1;
-	Fixed	mp2;
+	Point v1((b.getX() - a.getX()).toFloat(), (b.getY() - a.getY()).toFloat());
+	Point v2((c.getX() - b.getX()).toFloat(), (c.getY() - b.getY()).toFloat());
+	Point v3((a.getX() - c.getX()).toFloat(), (a.getY() - c.getY()).toFloat());
+	Fixed da, db, dc;
 
-	mp1 = Ax * By;
-	mp2 = Ay * Bx;
-	return (mp1 - mp2);
-}
-
-bool	same_side(Point const p1, Point const a, Point const b, Point const c)
-{
-	Fixed	mp;
-	Fixed	dp1;
-	Fixed	dp2;
-	Fixed	db1;
-	Fixed	db2;
-
-	db1 = c.getX() - b.getX();
-	db2 = c.getY() - b.getY();
-	dp1 = dot_product(db1, p1.getX() - b.getX(), db2, p1.getY() - b.getY());
-	dp2 = dot_product(db1, a.getX() - b.getX(), db2, a.getY() - b.getY());
-
-	mp = dp1 * dp2;
-	if (mp > 0)
-		return true;
-	else
-		return false;
-}
-
-bool    bsp(Point const a, Point const b, Point const c, Point const pt)
-{
-	if (same_side(pt, a, b, c) && same_side(pt, b, a, c) && same_side(pt, c, a, b))
-		return true;
-	else
-		return false;
+	da = (point.getX() - a.getX()) * v1.getY();
+	db = (point.getX() - b.getX()) * v2.getY();
+	dc = (point.getX() - c.getX()) * v3.getY();
+	if (da >= 0 && db >= 0 && dc >= 0)
+		return (true);
+	else if (da <= 0 && db <= 0 && dc <= 0)
+		return (true);
+	return (false);
 }

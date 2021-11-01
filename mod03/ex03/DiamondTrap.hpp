@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:56:30 by ztan          #+#    #+#                 */
-/*   Updated: 2021/10/26 17:24:23 by ztan          ########   odam.nl         */
+/*   Updated: 2021/11/01 18:07:49 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		std::string	_Name;
 
 	public:
-		DiamondTrap(const std::string _name);
+		DiamondTrap();
 		DiamondTrap&	operator=(const DiamondTrap &ref);
 		DiamondTrap(const DiamondTrap &ref);
 		virtual	~DiamondTrap();
 
+		DiamondTrap(const std::string _name);
 		void	attack(std::string const &target);
 };
 

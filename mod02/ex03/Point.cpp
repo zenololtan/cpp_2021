@@ -24,6 +24,14 @@ std::ostream&   operator<<(std::ostream &out, const Point &cpy)
         return out;
 }
 
+bool		Point::operator==(const Point &pnt) const
+{
+	if (this->_x == pnt.getX() && this->_y == pnt.getY())
+		return true;
+	else
+		return false;
+}
+
 Fixed	Point::getX() const
 {
 	return _x;

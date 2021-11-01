@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 15:28:40 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/26 17:28:23 by ztan          ########   odam.nl         */
+/*   Updated: 2021/11/01 17:58:05 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ class ScavTrap : public ClapTrap
 {
 	public:
 		ScavTrap();
-		ScavTrap(const std::string name);
 		ScavTrap&	operator=(const ScavTrap &ref);
 		ScavTrap(const ScavTrap &ref);
 		~ScavTrap();
 
+		ScavTrap(const std::string name);
 		void	attack(std::string const &target);
 		void	guardGate();
 };

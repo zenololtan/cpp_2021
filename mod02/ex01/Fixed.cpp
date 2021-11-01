@@ -6,7 +6,7 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 01:37:55 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/26 14:15:28 by ztan          ########   odam.nl         */
+/*   Updated: 2021/10/26 18:59:27 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,14 @@ Fixed::Fixed(const float input)
 Fixed::Fixed(const Fixed &copy)
 {
 	std::cout << "Copy constructor called." << std::endl;
-	if (this != &copy)
-		_raw_bits = copy.getRawBits();
-	return *this;
+	*this = copy;
 }
 
 Fixed&		Fixed::operator=(const Fixed &copy)
 {
 	std::cout << "Assignation operator called." << std::endl;
-	_raw_bits = copy.getRawBits();
+	if (this != &copy)
+		_raw_bits = copy.getRawBits();
 	return *this;
 }
 

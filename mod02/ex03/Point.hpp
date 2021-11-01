@@ -16,6 +16,7 @@ class	Point
 		Point(const Point &cpy);
 		Point(float x, float y);
 
+		bool	operator==(const Point &pnt) const;
 		Fixed	getX() const;
 		Fixed	getY() const;
 };

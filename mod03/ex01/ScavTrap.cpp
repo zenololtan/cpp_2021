@@ -6,14 +6,14 @@
 /*   By: zenotan <zenotan@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/15 15:28:37 by zenotan       #+#    #+#                 */
-/*   Updated: 2021/10/26 17:35:04 by ztan          ########   odam.nl         */
+/*   Updated: 2021/11/01 17:59:21 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(const std::string name)
+ScavTrap::ScavTrap()
 {
 	_Name = "ScavTrap default const";
 	_Hit_points = 100;

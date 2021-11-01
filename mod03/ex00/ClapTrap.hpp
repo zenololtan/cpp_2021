@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:49:31 by ztan          #+#    #+#                 */
-/*   Updated: 2021/10/26 17:27:52 by ztan          ########   odam.nl         */
+/*   Updated: 2021/11/01 17:50:00 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,14 @@ class ClapTrap
 		unsigned int	_Hit_points;
 		unsigned int	_Energy_points;
 		unsigned int	_Attack_damage;
-		ClapTrap();
 
 	public:
 		ClapTrap();
 		ClapTrap(const std::string name);
 		~ClapTrap();
 		ClapTrap&	operator=(const ClapTrap &ref);
+
 		ClapTrap(const ClapTrap &ref);
-		
 		void		attack(std::string const &target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
