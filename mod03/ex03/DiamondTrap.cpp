@@ -6,16 +6,17 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:56:32 by ztan          #+#    #+#                 */
-/*   Updated: 2021/11/01 18:09:03 by ztan          ########   odam.nl         */
+/*   Updated: 2021/11/01 18:47:48 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name")
+DiamondTrap::DiamondTrap()
 {
 	_Name = "Default";
+	ClapTrap::_Name = "Default_clap_name";
 	_Hit_points = FragTrap::_Hit_points;
 	_Energy_points = ScavTrap::_Energy_points;
 	_Attack_damage = FragTrap::_Attack_damage;
@@ -23,8 +24,9 @@ DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name")
 		 << YELLOW << _Name << RESET << " has been made" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string name) : ClapTrap(name + "_clap_name"), _Name(name)
+DiamondTrap::DiamondTrap(const std::string name) : _Name(name)
 {
+	ClapTrap::_Name = name + "_clap_name";
 	_Hit_points = FragTrap::_Hit_points;
 	_Energy_points = ScavTrap::_Energy_points;
 	_Attack_damage = FragTrap::_Attack_damage;
@@ -60,4 +62,9 @@ DiamondTrap::DiamondTrap(const DiamondTrap &ref)
 void	DiamondTrap::attack(std::string const &target)
 {
 	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::whoAmI()
+{
+	std::cout << "name: " << _Name << ", claptrap name:" << ClapTrap::_Name << std::endl;
 }

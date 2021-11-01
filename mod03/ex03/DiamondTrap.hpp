@@ -6,7 +6,7 @@
 /*   By: ztan <ztan@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 20:56:30 by ztan          #+#    #+#                 */
-/*   Updated: 2021/11/01 18:07:49 by ztan          ########   odam.nl         */
+/*   Updated: 2021/11/01 18:14:13 by ztan          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
 
 		DiamondTrap(const std::string _name);
 		void	attack(std::string const &target);
+		void	whoAmI();
 };
 
 #endif
