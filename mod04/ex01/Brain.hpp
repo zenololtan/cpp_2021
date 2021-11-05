@@ -1,25 +1,24 @@
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 
-class Animal
+class Brain
 {
 	private:
 		/*--------------------------Member variables--------------------------*/
-		std::string	_type;
-
+		std::string	ideas[100];
 	public:
 		/*----------------------------Coplien form----------------------------*/
-		Animal();
-		Animal(const Animal &ref);
-		Animal&			operator=(const Animal &ref);
-		virtual ~Animal();
+		Brain();
+		Brain(const Brain &ref);
+		Brain& operator=(const Brain &ref);
+		~Brain();
 
 		/*--------------------------Member functions--------------------------*/
-		void			setType(std::string name);
-		std::string		getType() const;
-		virtual void	makeSound() const;
+		void	thinkStuff();
+		void	thinkAloud();
+		
 };
 
 #endif

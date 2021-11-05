@@ -11,7 +11,23 @@ Dog::Dog()
 Dog::~Dog()
 {
 	/*Destructor*/
-	std::cout << "Dog destrctr called" << std::endl;
+	std::cout << "Dog default destrctor called" << std::endl;
+}
+
+Dog::Dog(const Dog &ref)
+{
+	/*Copy constructor*/
+	*this = ref;
+}
+
+Dog&	Dog::operator=(const Dog &ref)
+{
+	/*Assignation operator*/
+	if (this != &ref)
+	{
+		/* assign member variables*/
+	}
+	return *this;
 }
 /*--------------------------------Coplien form--------------------------------*/
 

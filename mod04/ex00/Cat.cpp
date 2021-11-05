@@ -11,8 +11,25 @@ Cat::Cat()
 Cat::~Cat()
 {
 	/*Destructor*/
-	std::cout << "Cat destrctr called" << std::endl;
+	std::cout << "Cat default destrctor called" << std::endl;
 }
+
+Cat::Cat(const Cat &ref)
+{
+	/*Copy constructor*/
+	*this = ref;
+}
+
+Cat&	Cat::operator=(const Cat &ref)
+{
+	/*Assignation operator*/
+	if (this != &ref)
+	{
+		/* assign member variables*/
+	}
+	return *this;
+}
+
 /*--------------------------------Coplien form--------------------------------*/
 
 void	Cat::makeSound() const

@@ -9,6 +9,8 @@ class Cat : public Animal
 	public:
 		/*----------------------------Coplien form----------------------------*/
 		Cat();
+		Cat(const Cat &ref);
+		Cat&			operator=(const Cat &ref);
 		~Cat();
 
 		/*--------------------------Member functions--------------------------*/

@@ -1,31 +1,29 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-void	test(const Animal *cpy)
+void	copy_test()
 {
-	cpy->makeSound();
-}
+	Cat *cat = new Cat();
 
-void	test2(Dog cpy)
-{
-	cpy.makeSound();
+	cat->thinkin();
+	Cat *cpy(cat);
+	cpy->speaking();
+	delete cpy;
 }
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	Dog X;
+	Animal *array[100];
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	test(j);
-	test2(X);
-	delete j;
-	delete i;
-	delete meta;
+	for (int i = 0; i < 50; i++)
+		array[i] = new Cat();
+	for (int i = 50; i < 100; i++)
+		array[i] = new Dog();
+	for (int i = 0; i < 100; i++)
+		delete array[i];
+	
+	std::cout << "Copy test---------------------" << std::endl;
+	copy_test();
+	// while(1) {}
+	return (0);
 }

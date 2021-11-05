@@ -1,9 +1,9 @@
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 
-class Animal
+class WrongAnimal
 {
 	private:
 		/*--------------------------Member variables--------------------------*/
@@ -11,10 +11,10 @@ class Animal
 
 	public:
 		/*----------------------------Coplien form----------------------------*/
-		Animal();
-		Animal(const Animal &ref);
-		Animal&			operator=(const Animal &ref);
-		virtual ~Animal();
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &ref);
+		WrongAnimal&			operator=(const WrongAnimal &ref);
+		virtual ~WrongAnimal();
 
 		/*--------------------------Member functions--------------------------*/
 		void			setType(std::string name);

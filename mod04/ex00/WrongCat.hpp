@@ -1,17 +1,15 @@
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
 	public:
 		/*----------------------------Coplien form----------------------------*/
-		Dog();
-		Dog(const Dog &ref);
-		Dog&			operator=(const Dog &ref);
-		~Dog();
+		WrongCat();
+		~WrongCat();
 
 		/*--------------------------Member functions--------------------------*/
 		void	makeSound() const;

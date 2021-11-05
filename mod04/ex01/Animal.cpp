@@ -1,16 +1,16 @@
 #include "Animal.hpp"
 
 /*--------------------------------Coplien form--------------------------------*/
-Animal::Animal() : type("")
+Animal::Animal() : _type("")
 {
 	/*Constructor*/
-	std::cout << "Animal const called" << std::endl;
+	std::cout << "Animal default constructor called" << std::endl;
 }
 
 Animal::~Animal()
 {
 	/*Destructor*/
-	std::cout << "Animal destrct called" << std::endl;
+	std::cout << "Animal default destrctor called" << std::endl;
 }
 
 Animal::Animal(const Animal &ref)
@@ -24,8 +24,8 @@ Animal&	Animal::operator=(const Animal &ref)
 	/*Assignation operator*/
 	if (this != &ref)
 	{
-		this->type = ref.type;
 		/* assign member variables*/
+		this->_type = ref._type;
 	}
 	return *this;
 }
@@ -33,12 +33,12 @@ Animal&	Animal::operator=(const Animal &ref)
 /*--------------------------------Coplien form--------------------------------*/
 void		Animal::setType(std::string name)
 {
-	type = name;
+	_type = name;
 }
 
 std::string	Animal::getType() const
 {
-	return type;
+	return _type;
 }
 
 void		Animal::makeSound() const

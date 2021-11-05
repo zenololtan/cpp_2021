@@ -7,18 +7,18 @@ class Animal
 {
 	private:
 		/*--------------------------Member variables--------------------------*/
-		std::string	type;
+		std::string	_type;
 
 	public:
 		/*----------------------------Coplien form----------------------------*/
 		Animal();
 		Animal(const Animal &ref);
-		Animal&		operator=(const Animal &ref);
+		Animal&			operator=(const Animal &ref);
 		virtual ~Animal();
 
 		/*--------------------------Member functions--------------------------*/
-		void		setType(std::string name);
-		std::string	getType() const;
+		void			setType(std::string name);
+		std::string		getType() const;
 		virtual void	makeSound() const;
 };
 

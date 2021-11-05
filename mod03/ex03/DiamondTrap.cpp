@@ -22,6 +22,7 @@ DiamondTrap::DiamondTrap()
 	_Attack_damage = FragTrap::_Attack_damage;
 	std::cout << RESET << "DiamondTrap constructor called: "
 		 << YELLOW << _Name << RESET << " has been made" << std::endl;
+	std::cout << "hp: " << _Hit_points << ", ep: " << _Energy_points << ", ad: " << _Attack_damage << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string name) : _Name(name)
