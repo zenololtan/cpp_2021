@@ -12,7 +12,6 @@ class WrongCat : public WrongAnimal
 		~WrongCat();
 
 		/*--------------------------Member functions--------------------------*/
-		void	makeSound() const;
 };
 
 #endif

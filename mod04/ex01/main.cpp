@@ -11,6 +11,12 @@ void	copy_test()
 	delete cpy;
 }
 
+void	leak_test()
+{	
+	Dog basic;
+	Dog tmp(basic);
+}
+
 int main()
 {
 	Animal *array[100];
@@ -24,6 +30,9 @@ int main()
 	
 	std::cout << "Copy test---------------------" << std::endl;
 	copy_test();
+	std::cout << "leaks test---------------------" << std::endl;
+	leak_test();
+	system("leaks Polymorphism");
 	// while(1) {}
 	return (0);
 }

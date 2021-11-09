@@ -8,14 +8,13 @@
 class Dog : public Animal
 {
 	private:
-		Brain *_thonks;
-
+		Brain	*_thonks;	
 	public:
 		/*----------------------------Coplien form----------------------------*/
 		Dog();
 		Dog(const Dog &ref);
 		Dog&			operator=(const Dog &ref);
-		~Dog();
+		virtual ~Dog();
 
 		/*--------------------------Member functions--------------------------*/
 		void	makeSound() const;

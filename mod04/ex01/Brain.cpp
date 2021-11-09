@@ -4,11 +4,13 @@
 Brain::Brain()
 {
 	/*Constructor*/
+	std::cout << "Default Brain constructor called" << std::endl;
 }
 
 Brain::~Brain()
 {
 	/*Destructor*/
+	std::cout << "Brain destructor called" << std::endl;
 }
 
 Brain::Brain(const Brain &ref)

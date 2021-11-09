@@ -13,7 +13,7 @@ class Brain
 		Brain();
 		Brain(const Brain &ref);
 		Brain& operator=(const Brain &ref);
-		~Brain();
+		virtual ~Brain();
 
 		/*--------------------------Member functions--------------------------*/
 		void	thinkStuff();

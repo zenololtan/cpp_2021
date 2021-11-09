@@ -31,11 +31,6 @@ WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &ref)
 }
 
 /*--------------------------------Coplien form--------------------------------*/
-void		WrongAnimal::setType(std::string name)
-{
-	_type = name;
-}
-
 std::string	WrongAnimal::getType() const
 {
 	return _type;

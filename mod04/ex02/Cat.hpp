@@ -8,18 +8,16 @@
 class Cat : public Animal
 {
 	private:
-		Brain *_thonks;
-
+		Brain	*_thonks;	
 	public:
 		/*----------------------------Coplien form----------------------------*/
 		Cat();
 		Cat(const Cat &ref);
 		Cat&			operator=(const Cat &ref);
-		~Cat();
+		virtual ~Cat();
 
 		/*--------------------------Member functions--------------------------*/
 		void	makeSound() const;
-
 		void	thinkin();
 		void	speaking();
 };

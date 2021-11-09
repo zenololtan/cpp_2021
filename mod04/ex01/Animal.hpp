@@ -5,7 +5,7 @@
 
 class Animal
 {
-	private:
+	protected:
 		/*--------------------------Member variables--------------------------*/
 		std::string	_type;
 
@@ -17,7 +17,6 @@ class Animal
 		virtual ~Animal();
 
 		/*--------------------------Member functions--------------------------*/
-		void			setType(std::string name);
 		std::string		getType() const;
 		virtual void	makeSound() const;
 };

@@ -17,7 +17,7 @@ class MateriaSource : public IMateriaSource
 		MateriaSource();
 		MateriaSource(const MateriaSource &ref);
 		MateriaSource& operator=(const MateriaSource &ref);
-		~MateriaSource();
+		virtual ~MateriaSource();
 
 		/*--------------------------Member functions--------------------------*/
 		void			learnMateria(AMateria* type);

@@ -4,7 +4,7 @@
 Dog::Dog()
 {
 	/*Constructor*/
-	this->setType("Dog");
+	_type = "Dog";
 	std::cout << "Dog const called" << std::endl;
 }
 

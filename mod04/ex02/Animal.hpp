@@ -5,16 +5,16 @@
 
 class Animal
 {
-	private:
+	protected:
 		/*--------------------------Member variables--------------------------*/
 		std::string	_type;
 
 	public:
 		/*--------------------------Member functions--------------------------*/
-		void	setType(std::string name);
+		virtual ~Animal();
+
 		std::string		getType() const;
 		virtual void	makeSound() const = 0;
-				virtual ~Animal();
 };
 
 #endif

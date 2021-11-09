@@ -31,11 +31,6 @@ Animal&	Animal::operator=(const Animal &ref)
 }
 
 /*--------------------------------Coplien form--------------------------------*/
-void		Animal::setType(std::string name)
-{
-	_type = name;
-}
-
 std::string	Animal::getType() const
 {
 	return _type;

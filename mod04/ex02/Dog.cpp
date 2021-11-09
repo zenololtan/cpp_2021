@@ -1,25 +1,26 @@
 #include "Dog.hpp"
-#include "Brain.hpp"
 
 /*--------------------------------Coplien form--------------------------------*/
 Dog::Dog()
 {
 	/*Constructor*/
-	this->setType("Dog");
-	this->_thonks = new Brain;
+	_type = "Dog";
+	_thonks = new Brain;
 	std::cout << "Dog const called" << std::endl;
 }
 
 Dog::~Dog()
 {
 	/*Destructor*/
-	std::cout << "Dog destrctr called" << std::endl;
-	delete _thonks;
+	std::cout << "Dog default destrctor called" << std::endl;
+	if (_thonks)
+		delete _thonks;
 }
 
-Dog::Dog(const Dog &ref) : _thonks(ref._thonks)
+Dog::Dog(const Dog &ref) : _thonks(0)
 {
 	/*Copy constructor*/
+	*this = ref;
 }
 
 Dog&	Dog::operator=(const Dog &ref)
@@ -27,8 +28,8 @@ Dog&	Dog::operator=(const Dog &ref)
 	/*Assignation operator*/
 	if (this != &ref)
 	{
-		delete _thonks;
 		/* assign member variables*/
+		delete _thonks;
 		_thonks = new Brain(*ref._thonks);
 	}
 	return *this;

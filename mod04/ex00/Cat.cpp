@@ -4,7 +4,7 @@
 Cat::Cat()
 {
 	/*Constructor*/
-	this->setType("Cat");
+	_type = "Cat";
 	std::cout << "Cat const called" << std::endl;
 }
 

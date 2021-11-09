@@ -5,7 +5,7 @@
 
 class WrongAnimal
 {
-	private:
+	protected:
 		/*--------------------------Member variables--------------------------*/
 		std::string	_type;
 
@@ -17,9 +17,8 @@ class WrongAnimal
 		virtual ~WrongAnimal();
 
 		/*--------------------------Member functions--------------------------*/
-		void			setType(std::string name);
 		std::string		getType() const;
-		virtual void	makeSound() const;
+		void			makeSound() const;
 };
 
 #endif

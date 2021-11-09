@@ -4,7 +4,7 @@
 WrongCat::WrongCat()
 {
 	/*Constructor*/
-	this->setType("WrongCat");
+	_type = "WrongCat";
 	std::cout << "WrongCat const called" << std::endl;
 }
 
@@ -15,7 +15,3 @@ WrongCat::~WrongCat()
 }
 /*--------------------------------Coplien form--------------------------------*/
 
-void	WrongCat::makeSound() const
-{
-	std::cout << "I am cat meow meow I hate everything" << std::endl;
-}
