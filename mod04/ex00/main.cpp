@@ -12,6 +12,16 @@ void	test2(Dog cpy)
 	cpy.makeSound();
 }
 
+void copy_test()
+{
+	Dog basic;
+	Animal idk;
+	std::cout << idk.getType() << " " << std::endl;
+	idk = basic;
+	std::cout << idk.getType() << " " << std::endl;
+
+}
+
 int main()
 {
 	const Animal* meta = new Animal();
@@ -29,6 +39,9 @@ int main()
 	delete j;
 	delete i;
 	delete meta;
+	std::cout << "copy------------------------------------------\n";
+	copy_test();
+	std::cout << "copy------------------------------------------\n";
 	std::cout << "Wrong------------------------------------------\n";
 	const WrongCat *stupid_kitty = new WrongCat();
 	

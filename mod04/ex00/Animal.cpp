@@ -1,7 +1,7 @@
 #include "Animal.hpp"
 
 /*--------------------------------Coplien form--------------------------------*/
-Animal::Animal() : _type("")
+Animal::Animal() : _type("???")
 {
 	/*Constructor*/
 	std::cout << "Animal default constructor called" << std::endl;
