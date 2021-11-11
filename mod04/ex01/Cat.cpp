@@ -4,9 +4,9 @@
 Cat::Cat()
 {
 	/*Constructor*/
-	std::cout << "Cat const called" << std::endl;
 	_type = "Cat";
 	_thonks = new Brain;
+	std::cout << "Cat const called" << std::endl;
 }
 
 Cat::~Cat()

@@ -24,6 +24,7 @@ Animal&	Animal::operator=(const Animal &ref)
 	if (this != &ref)
 	{
 		/* assign member variables*/
+		this->_type = ref._type;
 	}
 	return *this;
 }
