@@ -8,7 +8,7 @@ class IMateriaSource
 {
 	public:
 		/*----------------------------Coplien form----------------------------*/
-		virtual ~IMateriaSource() {};
+		virtual ~IMateriaSource() {}
 
 		/*--------------------------Member functions--------------------------*/
 		virtual void learnMateria(AMateria*) = 0;

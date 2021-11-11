@@ -8,9 +8,11 @@ class Animal
 	protected:
 		/*--------------------------Member variables--------------------------*/
 		std::string	_type;
-
 	public:
 		/*--------------------------Member functions--------------------------*/
+		Animal();
+		Animal(const Animal &ref);
+		Animal& operator=(const Animal &ref);
 		virtual ~Animal();
 
 		std::string		getType() const;

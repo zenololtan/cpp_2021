@@ -12,7 +12,7 @@ class Brain
 		/*----------------------------Coplien form----------------------------*/
 		Brain();
 		Brain(const Brain &ref);
-		Brain& operator=(const Brain &ref);
+		Brain&	operator=(const Brain &ref);
 		virtual ~Brain();
 
 		/*--------------------------Member functions--------------------------*/

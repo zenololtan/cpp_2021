@@ -10,14 +10,12 @@ class AMateria
 {
 	protected:
 		std::string	_type;
-	private:
-		/*--------------------------Member variables--------------------------*/
+	public:
+		/*----------------------------Coplien form----------------------------*/
 		AMateria();
 		AMateria(const AMateria &ref);
 		AMateria& operator=(const AMateria &ref);
-	public:
-		/*----------------------------Coplien form----------------------------*/
-		virtual ~AMateria() {};
+		virtual ~AMateria() {}
 
 		/*--------------------------Member functions--------------------------*/
 		AMateria(std::string const & type);

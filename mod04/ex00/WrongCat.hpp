@@ -9,8 +9,10 @@ class WrongCat : public WrongAnimal
 	public:
 		/*----------------------------Coplien form----------------------------*/
 		WrongCat();
-		~WrongCat();
+		virtual ~WrongCat();
 
+		WrongCat(const WrongCat &ref);
+		WrongCat&			operator=(const WrongCat &ref);
 		/*--------------------------Member functions--------------------------*/
 };
 
