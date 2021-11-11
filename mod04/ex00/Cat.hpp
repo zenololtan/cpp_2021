@@ -12,7 +12,7 @@ class Cat : public Animal
 		Cat(const Cat &ref);
 		Cat&			operator=(const Cat &ref);
 		virtual	~Cat();
-
+		
 		/*--------------------------Member functions--------------------------*/
 		void	makeSound() const;
 };
