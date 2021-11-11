@@ -11,7 +11,7 @@ Cure::~Cure()
 	/*Destructor*/
 }
 
-Cure::Cure(const Cure &ref) : AMateria("cure")
+Cure::Cure(const Cure &ref) : AMateria(ref._type)
 {
 	/*Copy constructor*/
 	*this = ref;

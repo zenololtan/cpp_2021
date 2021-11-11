@@ -62,22 +62,16 @@ void	extra_tests(void)
 	AMateria*		tmp;
 
 	// Equipping while checking to see if materia exists in src.
-	tmp = copy->createMateria(ice);
-	if (tmp != 0) {
-		std::cout << ice << " equipped!" << std::endl;
-		hero->equip(tmp);
-	}
+	AMateria *tmp1 = copy->createMateria(ice);
+	if (tmp1 != 0)
+		hero->equip(tmp1);
 	tmp = copy->createMateria(cure);
-	if (tmp != 0) {
-		std::cout << cure << " equipped!" << std::endl;
+	if (tmp != 0)
 		hero->equip(tmp);
-	}
 	// Erroneous materia
 	tmp = copy->createMateria(fire);
-	if (tmp != 0) {
-		std::cout << fire << " equipped!" << std::endl;
+	if (tmp != 0)
 		hero->equip(tmp);
-	}
 
 	hero->use(0, *enemy);		// Shoot ice bolt at NAME
 	hero->use(1, *enemy);		// heals NAME's wounds
@@ -86,7 +80,7 @@ void	extra_tests(void)
 	hero->use(0, *enemy);		// Nothing, 0 unequiped
 	hero->use(1, *enemy);		// heals NAME's wounds
 
-	hero->equip(copy->createMateria("ice"));
+	hero->equip(tmp1);
 
 	// Shouldn't be equipped, Character class rejects NULL pointer.
 	hero->equip(copy->createMateria("fire"));
@@ -102,6 +96,7 @@ void	extra_tests(void)
 	delete src;
 	delete copy;
 
+	delete tmp;
 	print_divider("end");
 }
 
@@ -109,6 +104,7 @@ int	main()
 {
 	subject_test();
 	extra_tests();
-	
+
+	system("leaks Materia");
 	return 0;
 }

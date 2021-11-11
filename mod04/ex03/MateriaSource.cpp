@@ -19,7 +19,10 @@ MateriaSource::MateriaSource(const MateriaSource &ref)
 {
 	/*Copy constructor*/
 	for (int i = 0; i <= this->_count; ++i)
+	{
+		delete this->_spellbook[i];//
 		this->_spellbook[i] = NULL;
+	}
 	this->_count = ref._count;
 	for (int i = 0; i < this->_count; ++i)
 		this->_spellbook[i] = this->_spellbook[i]->clone();
@@ -31,10 +34,11 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource &ref)
 	if (this != &ref)
 	{
 		for (int i = 0; i < this->_count; ++i)
+		{
 			delete this->_spellbook[i];
-		this->_count = ref._count;
-		for (int i = 0; i <= SPELLBOOK_SIZE; ++i)
 			this->_spellbook[i] = NULL;
+		}
+		this->_count = ref._count;
 		for (int i = 0; i < this->_count; ++i)
 			this->_spellbook[i] = ref._spellbook[i]->clone();
 	}

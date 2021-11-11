@@ -13,10 +13,8 @@ Character::~Character()
 {
 	/*Destructor*/
 	for (int i = 0; i <= INVENTORY_SIZE; ++i)
-	{
-		delete this->_inventory[i];
-		this->_inventory[i] = NULL;
-	}
+		if (this->_inventory[i])
+			delete this->_inventory[i];
 	std::cout << _name << " has freaking DIED" << std::endl;
 }
 
@@ -34,7 +32,10 @@ Character&	Character::operator=(const Character &ref)
 		/* assign member variables*/
 		this->_name = ref._name;
 		for (int i = 0; i <= INVENTORY_SIZE; i++)
+		{
+			delete this->_inventory[i];
 			this->_inventory[i] = ref._inventory[i]->clone();
+		}
 	}
 	return *this;
 }
@@ -64,7 +65,7 @@ void				Character::equip(AMateria* m)
 	{
 		if (this->_inventory[i] == NULL)
 		{
-			this->_inventory[i] = m->clone();
+			this->_inventory[i] = m;
 			equiped = true;
 			n = i;
 			break ;

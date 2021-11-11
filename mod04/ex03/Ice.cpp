@@ -11,7 +11,7 @@ Ice::~Ice()
 	/*Destructor*/
 }
 
-Ice::Ice(const Ice &ref) : AMateria("ice")
+Ice::Ice(const Ice &ref) : AMateria(ref._type)
 {
 	/*Copy constructor*/
 	*this = ref;
