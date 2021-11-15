@@ -1,0 +1,36 @@
+[
+ {
+  "directory": "/Users/zenotan/projects/cpp_2021/mod05/ex00",
+  "arguments": [
+   "clang++",
+   "-Ioutput_utils",
+   "-c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-std=c++98",
+   "-pedantic",
+   "-o",
+   "obj/main.o",
+   "main.cpp"
+  ],
+  "file": "main.cpp"
+ },
+ {
+  "directory": "/Users/zenotan/projects/cpp_2021/mod05/ex00",
+  "arguments": [
+   "clang++",
+   "-Ioutput_utils",
+   "-c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-std=c++98",
+   "-pedantic",
+   "-o",
+   "obj/Bureaucrat.o",
+   "Bureaucrat.cpp"
+  ],
+  "file": "Bureaucrat.cpp"
+ }
+]
