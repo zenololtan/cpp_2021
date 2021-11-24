@@ -74,8 +74,8 @@ void		Bureaucrat::decGrade()
 void	Bureaucrat::signForm(Form &ref)
 {
 	try {
-		std::cout << _Name << " signs " << ref.getName() << std::endl;
 		ref.beSigned(*this);
+		std::cout << _Name << " signs " << ref.getName() << std::endl;
 	} catch (std::exception &e) {
 		std::cout << _Name << " cannot sign " << ref.getName() << " because the grade is too low" << std::endl;
 	}

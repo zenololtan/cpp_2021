@@ -17,7 +17,7 @@ void	test_robo()
 		std::cout << billy << std::endl;
 
 		billy.signForm(new_form);
-		new_form.action(billy);
+		new_form.execute(billy);
 	}
 	catch(const std::exception& e)
 	{
@@ -36,7 +36,7 @@ void	test_pres()
 		std::cout << billy << std::endl;
 
 		billy.signForm(new_form);
-		new_form.action(billy);
+		new_form.execute(billy);
 	}
 	catch(const std::exception& e)
 	{
@@ -55,7 +55,7 @@ void	test_shrub()
 		std::cout << billy << std::endl;
 
 		billy.signForm(new_form);
-		new_form.action(billy);
+		new_form.execute(billy);
 	}
 	catch(const std::exception& e)
 	{

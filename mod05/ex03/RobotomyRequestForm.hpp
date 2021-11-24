@@ -19,7 +19,7 @@ class RobotomyRequestForm : public Form
 		~RobotomyRequestForm();
 
 		/*--------------------------Member functions--------------------------*/
-		void		execute(Bureaucrat const &executor) const;
+		void	action(const Bureaucrat &ref) const;
 };
 
 #endif

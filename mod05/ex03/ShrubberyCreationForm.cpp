@@ -36,10 +36,10 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 /*--------------------------------Coplien form--------------------------------*/
 
-void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+void	ShrubberyCreationForm::action(const Bureaucrat &ref) const
 {
 	std::cout << "action" << std::endl;
-	Form::valid_ex(executor);
+	Form::execute(ref);
 	std::ofstream myfile(_Target + "_shrubbery");
 
 	myfile << "ASCII trees";

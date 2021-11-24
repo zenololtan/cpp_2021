@@ -34,8 +34,8 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 }
 /*--------------------------------Coplien form--------------------------------*/
 
-void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
+void	PresidentialPardonForm::action(const Bureaucrat &ref) const
 {
-	Form::valid_ex(executor);
+	Form::execute(ref);
 	std::cout << _Target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }

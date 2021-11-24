@@ -30,8 +30,8 @@ class Form
 		
 		Form(std::string name, const int &signgrade, const int &execgrade);
 		void				beSigned(const Bureaucrat &ref);
-		virtual void		execute(Bureaucrat const &executor) const = 0;
-		void				valid_ex(const Bureaucrat &ref) const;
+		void				execute(Bureaucrat const &executor) const;
+		virtual void		action(const Bureaucrat &ref) const = 0;
 
 		/*--------------------------Exception Classes-------------------------*/
 		class GradeTooHighException : public std::exception
