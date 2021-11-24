@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "output.hpp"
+#include <exception>
 #include <ostream>
 
 /*--------------------------------Coplien form--------------------------------*/
@@ -41,7 +43,6 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &ref)
 }
 /*--------------------------------Coplien form--------------------------------*/
 
-
 std::string Bureaucrat::getName() const
 {
 	return _Name;
@@ -68,6 +69,16 @@ void		Bureaucrat::decGrade()
 		_Grade += 1;
 	else
 		throw Bureaucrat::GradeTooLowException;
+}
+
+void	Bureaucrat::signForm(Form &ref)
+{
+	try {
+		ref.beSigned(*this);
+		std::cout << _Name << " signs " << ref.getName() << std::endl;
+	} catch (std::exception &e) {
+		std::cout << _Name << " cannot sign " << ref.getName() << " because the grade is too low" << std::endl;
+	}
 }
 
 std::ostream&	operator<<(std::ostream &out, const Bureaucrat &ref)

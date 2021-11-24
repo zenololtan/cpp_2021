@@ -40,7 +40,7 @@ void	test_inc_too_high()
 
 void	test_dec_too_low()
 {
-	print_divider(MAGENTA, "Too low inc test");
+	print_divider(MAGENTA, "Too low dec test");
 	try {
 		Bureaucrat newB("BillyBoy5", 150);
 		std::cout << newB << std::endl;
@@ -51,6 +51,33 @@ void	test_dec_too_low()
 	}
 }
 
+void	test_justenoughigh(void)
+{
+
+	print_divider(MAGENTA, "just enough inc test");
+	try {
+		Bureaucrat newB("BilbyBruhv", 2);
+		std::cout << newB << std::endl;
+		newB.incGrade(); // should work
+		std::cout << newB << std::endl;
+	} catch (std::exception &e) {
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
+}
+
+void	test_justenouglow(void)
+{
+
+	print_divider(MAGENTA, "just enough dec test");
+	try {
+		Bureaucrat newB("BilbyBruhv2", 149);
+		std::cout << newB << std::endl;
+		newB.decGrade(); // should work
+		std::cout << newB << std::endl;
+	} catch (std::exception &e) {
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
+}
 int	main()
 {
 	Bureaucrat new_bureaucrat("BillyBoy", 100);
@@ -66,6 +93,8 @@ int	main()
 	test_too_high();
 	test_inc_too_high();
 	test_dec_too_low();
+	test_justenoughigh();
+	test_justenouglow();
 	print_divider(MAGENTA, "End");
 
 	return 0;
