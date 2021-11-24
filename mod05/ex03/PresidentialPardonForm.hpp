@@ -19,7 +19,7 @@ class PresidentialPardonForm : public Form
 		~PresidentialPardonForm();
 
 		/*--------------------------Member functions--------------------------*/
-		void	action(const Bureaucrat &ref) const;
+		void		execute(Bureaucrat const &executor) const;
 };
 
 #endif

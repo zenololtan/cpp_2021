@@ -21,7 +21,7 @@ class ShrubberyCreationForm : public Form
 
 		/*--------------------------Member functions--------------------------*/
 		std::string	getTarget() const;
-		void		action(const Bureaucrat &ref) const;
+		void		execute(Bureaucrat const &executor) const;
 };
 
 #endif

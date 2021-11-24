@@ -1,10 +1,12 @@
 #include "RobotomyRequestForm.hpp"
+#include <time.h>
 #include "output.hpp"
 
 /*--------------------------------Coplien form--------------------------------*/
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form::Form("RobotomyRequestForm", 72, 45), _Target(target)
 {
 	/*Constructor*/
+	srand (time(NULL));
 	std::cout << YELLOW << "RobotomyRequestForm default constructor called" << RESET << std::endl;
 }
 
@@ -34,17 +36,14 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 }
 /*--------------------------------Coplien form--------------------------------*/
 
-void	RobotomyRequestForm::action(const Bureaucrat &ref) const
+void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	static int i = 0;
+	static int i = rand() % 2 + 1;;
 
-	Form::execute(ref);
-	if (i == 2)
-		i = 0;
+	Form::valid_ex(executor);
 	std::cout << "Drill drill drill... ";
 	if (i % 2)
 		std::cout << _Target << " has been robotomized successfully" << std::endl;
 	else
 		std::cout << " robotomization has failed :'(" << std::endl;
-	i++;
 }

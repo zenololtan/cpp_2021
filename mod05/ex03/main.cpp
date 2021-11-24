@@ -1,27 +1,28 @@
-#include "Form.hpp"
 #include "Intern.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include "output.hpp"
 #include <exception>
 #include <ostream>
 
-int main()
+
+int	main()
 {
-	Bureaucrat	bilbo("bilbo", 1);
-	Intern	intern;
+	Bureaucrat Bilby("broman", 1);
+	Intern intern;
 	std::string forms[] = {
 		"shrubbery creation",
 		"robotomy request",
 		"presidential pardon",
-		"invalid form",
-	};
+		"invalid form" };
 
 	for (size_t i = 0; i < 4; i++) {
 		Form* form = intern.makeForm(forms[i], "test target");
 		if (form) {
 			try {
-				std::cout << "wtf" << std::endl;
-				form->beSigned(bilbo);
-				form->action(bilbo);
+				form->beSigned(Bilby);
+				form->execute(Bilby);
 			} catch (const std::exception& e) {
 				std::cerr << e.what() << std::endl;
 			}
@@ -30,6 +31,7 @@ int main()
 			std::cout << "Form not found" << std::endl;
 		}
 	}
+	print_divider(MAGENTA, "End");
 
 	return 0;
 }

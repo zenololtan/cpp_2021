@@ -35,6 +35,7 @@ clean:
 	@make clean -C $(OUTPUTDIR)
 	@echo "Removing objects..."
 	@rm -rf $(OBJDIR)
+	@rm -f *_shrubbery
 
 fclean: clean
 	@make fclean -C $(OUTPUTDIR)

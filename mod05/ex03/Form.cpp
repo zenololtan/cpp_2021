@@ -75,17 +75,20 @@ bool	Form::getSign() const
 void	Form::beSigned(const Bureaucrat &ref)
 {
 	if (ref.getGrade() <= _SignGrade)
+	{
 		_Signed = true;
+		std::cout << _Name << " is Signed" << std::endl;
+	}
 	else
 		throw Form::GradeTooLowException;
 }
 
-void	Form::execute(Bureaucrat const &executor) const
+void	Form::valid_ex(Bureaucrat const &ref) const
 {
 	if (_Signed)
 	{
-		if (executor.getGrade() > _ExecGrade)
-			throw Form::GradeTooLowException;
+		if (ref.getGrade() > _ExecGrade)
+			throw Form::GradeTooLowException;	
 	}
 	else
 		throw Form::NotSigned;
