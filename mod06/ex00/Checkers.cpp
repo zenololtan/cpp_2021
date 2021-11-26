@@ -1,5 +1,6 @@
 #include <sstream>
 #include <string>
+#include <iostream>
 
 bool	is_char(const std::string &s, char *d)
 {
@@ -11,7 +12,7 @@ bool	is_char(const std::string &s, char *d)
 	else
 		return false;
 }
-#include <iostream>
+
 bool	is_int(const std::string &s, int *i)
 {
 	std::string::const_iterator it = s.begin();
@@ -42,7 +43,7 @@ bool	is_float(const std::string &s, float *f)
 		++it;
 	if (!s.empty() && *it == 'f' && ++it == s.end() && s.find(".f") == std::string::npos)
 	{
-		std::istringstream(s) >> *f;
+		*f = std::atof(s.c_str());
 		return true;
 	}
 	else
