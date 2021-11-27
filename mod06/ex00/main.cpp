@@ -13,19 +13,19 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		const	std::string str(argv[1]);
-		Convert	val;
 
 		if (is_char(str, &character))
-			val = Convert(character);
+			print_char(character);
 		else if (is_int(str, &integer))
-			val = Convert(integer);
+			print_int(integer);
 		else if (is_float(str, &floating))
-			val = Convert(floating);
+			print_float(floating);
 		else if (is_double(str, &dub))
-			val = Convert(dub);
+			print_double(dub);
+		else if (is_non(str))
+			print_non(str);
 		else
 			std::cout << "Error: invalid input" << std::endl;
-		std::cout << val << std::endl;
 	}
 	return 0;
 }

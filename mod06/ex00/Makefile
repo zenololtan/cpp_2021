@@ -1,7 +1,7 @@
 NAME = convert
 
 FILES =	main.cpp \
-	Convert.cpp \
+	Print.cpp \
 	Checkers.cpp
 
 OBJDIR = obj/
@@ -12,29 +12,22 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-OUTPUTDIR = output_utils
-
-OUTPUTLIB = $(OUTPUTDIR)/output.a
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C $(OUTPUTDIR)
 	@echo "Compiling executable..."
-	@$(CC) -L$(OUTPUTDIR) $(OUTPUTLIB) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 $(OBJDIR)%.o: %.cpp
 	@mkdir -p $(OBJDIR)
 	@echo "Compiling $@"
-	@$(CC) -I$(OUTPUTDIR) -c $(FLAGS) -o $@ $< 
+	@$(CC) -c $(FLAGS) -o $@ $< 
 
 clean:
-	@make clean -C $(OUTPUTDIR)
 	@echo "Removing objects..."
 	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@make fclean -C $(OUTPUTDIR)
 	@echo "Deleting executable..."
 	@rm -f $(NAME)
 

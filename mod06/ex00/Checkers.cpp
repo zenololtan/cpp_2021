@@ -4,7 +4,7 @@
 
 bool	is_char(const std::string &s, char *d)
 {
-	if (s.length() == 1 && std::isalpha(s[0]))
+	if (s.length() == 1 && std::isprint(s[0]))
 	{
 		*d = s[0];
 		return true;
@@ -67,4 +67,9 @@ bool	is_double(const std::string &s, double *d)
 	}
 	else
 		return false;
+}
+
+bool	is_non(const std::string &s)
+{
+	return (s == "nan" || s == "-inf" || s == "+inf" || s == "nanf" || s == "-inff" || s == "+inff");
 }
