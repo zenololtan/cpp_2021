@@ -2,7 +2,13 @@
 #include "output.hpp"
 
 /*--------------------------------Coplien form--------------------------------*/
-Data::Data() : _Int(69), _Char('n'), _Message("Default message"), _Str_c(_Message.c_str())
+Data::Data() : _Message("Default message")
+{
+	/*Constructor*/
+	std::cout << YELLOW << "Data default constructor called" << RESET << std::endl;
+}
+
+Data::Data(std::string str) : _Message(str)
 {
 	/*Constructor*/
 	std::cout << YELLOW << "Data default constructor called" << RESET << std::endl;
@@ -14,7 +20,7 @@ Data::~Data()
 	std::cout << YELLOW << "Data destructor called" << RESET << std::endl;
 }
 
-Data::Data(const Data &ref) : _Str_c(ref._Str_c)
+Data::Data(const Data &ref)
 {
 	/*Copy constructor*/
 	std::cout << BOLD << "Data copy constructor called" << RESET << std::endl;
@@ -28,8 +34,6 @@ Data&	Data::operator=(const Data &ref)
 	if (this != &ref)
 	{
 		/* assign member variables*/
-		this->_Int = ref._Int;
-		this->_Char = ref._Char;
 		this->_Message = ref._Message;
 	}
 	return *this;
@@ -39,19 +43,6 @@ Data&	Data::operator=(const Data &ref)
 std::ostream&	operator<<(std::ostream &out, const Data &ref)
 {
 	/*Output operator*/
-	out << "i: " << ref.getI() << ", c: " <<ref.getC() << ", message: " << ref.getMessage() << ", c_str: " << ref.getStr();
+	out << "message: " << ref.getMessage();
 	return out;
-}
-
-uintptr_t 	serialize(Data* ptr)
-{
-	uintptr_t test;
-	test = reinterpret_cast<uintptr_t>(ptr);
-	return test;
-}
-
-Data*		deserialize(uintptr_t raw)
-{
-	Data *ret = new Data(*reinterpret_cast<Data*>(raw));
-	return ret;
 }
