@@ -7,18 +7,15 @@ class Base
 {
 	private:
 		/*--------------------------Member variables--------------------------*/
-
+		Base& operator=(const Base &ref);
 	public:
 		/*----------------------------Coplien form----------------------------*/
 		Base();
 		Base(const Base &ref);
-		Base& operator=(const Base &ref);
-		~Base();
+		virtual ~Base();
 
 		/*--------------------------Member functions--------------------------*/
 
 };
-
-std::ostream&	operator<<(std::ostream &out, const Base &ref);
 
 #endif

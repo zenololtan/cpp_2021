@@ -1,9 +1,10 @@
 #ifndef C_HPP
 # define C_HPP
 
+# include "Base.hpp"
 # include <iostream>
 
-class C
+class C : public Base
 {
 	private:
 		/*--------------------------Member variables--------------------------*/
@@ -18,7 +19,5 @@ class C
 		/*--------------------------Member functions--------------------------*/
 
 };
-
-std::ostream&	operator<<(std::ostream &out, const C &ref);
 
 #endif

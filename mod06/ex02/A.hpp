@@ -1,9 +1,10 @@
 #ifndef A_HPP
 # define A_HPP
 
+# include "Base.hpp"
 # include <iostream>
 
-class A
+class A : public Base
 {
 	private:
 		/*--------------------------Member variables--------------------------*/
@@ -18,7 +19,5 @@ class A
 		/*--------------------------Member functions--------------------------*/
 
 };
-
-std::ostream&	operator<<(std::ostream &out, const A &ref);
 
 #endif

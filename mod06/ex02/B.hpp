@@ -1,13 +1,13 @@
 #ifndef B_HPP
 # define B_HPP
 
+# include "Base.hpp"
 # include <iostream>
 
-class B
+class B : public Base
 {
 	private:
 		/*--------------------------Member variables--------------------------*/
-
 	public:
 		/*----------------------------Coplien form----------------------------*/
 		B();
@@ -18,7 +18,5 @@ class B
 		/*--------------------------Member functions--------------------------*/
 
 };
-
-std::ostream&	operator<<(std::ostream &out, const B &ref);
 
 #endif

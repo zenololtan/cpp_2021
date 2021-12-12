@@ -32,10 +32,3 @@ C&	C::operator=(const C &ref)
 	return *this;
 }
 /*--------------------------------Coplien form--------------------------------*/
-
-std::ostream&	operator<<(std::ostream &out, const C &ref)
-{
-	/*Output operator*/
-	/*out << C;
-	return out;*/
-}

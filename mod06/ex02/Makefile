@@ -5,6 +5,7 @@ FILES =	main.cpp \
 	A.cpp \
 	B.cpp \
 	C.cpp \
+	Identify.cpp
 
 OBJDIR = obj/
 
