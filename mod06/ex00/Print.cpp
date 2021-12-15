@@ -13,7 +13,7 @@ void	print_char(char c)
 void	print_int(int i)
 {
 	if (!std::isprint(i))
-		std::cout << "char: impossible" << std::endl;
+		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
 	std::cout << "int: " << i << std::endl;
@@ -27,7 +27,7 @@ void	print_float(float f)
 	rest = modf(f, &rest);
 
 	if (!std::isprint(f))
-		std::cout << "char: impossible" << std::endl;
+		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
 	if (f > INT_MAX || f < INT_MIN)
@@ -50,7 +50,7 @@ void	print_double(double d)
 	rest = modf(d, &rest);
 
 	if (!std::isprint(d))
-		std::cout << "char: impossible" << std::endl;
+		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
 	if (d > INT_MAX || d < INT_MIN)

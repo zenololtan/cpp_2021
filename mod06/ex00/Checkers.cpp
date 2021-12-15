@@ -4,7 +4,7 @@
 
 bool	is_char(const std::string &s, char *d)
 {
-	if (s.length() == 1 && std::isprint(s[0]))
+	if (s.length() == 1 && std::isprint(s[0]) && !std::isdigit(s[0]))
 	{
 		*d = s[0];
 		return true;
