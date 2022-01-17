@@ -2,13 +2,18 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <exception>
+# include <functional>
+# include <vector>
+# include <stdlib.h>
 
 class Span
 {
 	private:
 		/*--------------------------Member variables--------------------------*/
-		int *arr;
-		unsigned int n;
+		std::vector<int> vec;
+		unsigned int index;
+		unsigned int size;
 
 		Span();
 	public:
@@ -19,7 +24,10 @@ class Span
 		~Span();
 
 		/*--------------------------Member functions--------------------------*/
-
+		void	addNumber(int num);
+		int		shortestSpan();
+		int		longestSpan();
+		void	prnt();
 };
 
 #endif
