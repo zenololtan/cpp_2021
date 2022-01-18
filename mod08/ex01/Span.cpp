@@ -1,11 +1,15 @@
 #include "Span.hpp"
 #include "output.hpp"
+#include <stdexcept>
+#include <limits>
+#include <algorithm>
+#include <cstdlib>
 
 /*--------------------------------Coplien form--------------------------------*/
-Span::Span(unsigned int num) : index(0), size(num)
+Span::Span(unsigned int size)
 {
 	/*Constructor*/
-	// vec = std::vector<int>;
+	this->reserve(size);
 	std::cout << YELLOW << "Span default constructor called" << RESET << std::endl;
 }
 
@@ -27,49 +31,55 @@ Span&	Span::operator=(const Span &ref)
 	/*Assignation operator*/
 	std::cout << BOLD << "Span assignation overload called" << RESET << std::endl;
 	if (this != &ref)
-	{
-		/* assign member variables*/
-	}
+		std::vector<int>::operator=(ref);
 	return *this;
 }
 /*--------------------------------Coplien form--------------------------------*/
 
 void	Span::addNumber(int num)
 {
-	if (index >= size)
-		throw std::exception();
-	vec.push_back(num);
-	index++;
+	if (this->size() == this->capacity())
+		throw std::runtime_error("Error: adding number out of bounds");
+	this->push_back(num);
 }
 
-int		Span::shortestSpan()
+void	Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last)
 {
-	std::vector<int> cp(vec);
-	int diff = INT_MAX;
+	while (first != last)
+		addNumber(*first++);
+}
 
-	if (cp.size() <= 1)
-		throw std::exception();
+unsigned int	Span::shortestSpan() const
+{
+	std::vector<int>	cp(*this);
+	unsigned int		shortestSpan = std::numeric_limits<unsigned int>::max();
+
+	if (this->empty() || this->size() == 1)
+		throw std::runtime_error("Error: not enough numbers to get a span");
 	std::sort(cp.begin(), cp.end(), std::less<int>());
-	for (unsigned int i = 0; i < cp.size() - 1; i++)
-	{
-		if (diff > abs(cp[i] - cp[i + 1]))
-			diff = abs(cp[i] - cp[i + 1]);
+	for (unsigned int i = cp.size() - 1; i != 0; i--){
+		shortestSpan = std::min(shortestSpan, (unsigned int)(cp[i] - cp[i - 1]));
 	}
-	return (diff);
+	return (shortestSpan);
 }
 
-int		Span::longestSpan()
+unsigned int	Span::longestSpan() const
 {
-	std::vector<int> cp(vec);
-
-	std::sort(cp.begin(), cp.end(), std::less<int>());
-	return (abs(cp.back() - cp.front()));
+	if (this->empty() || this->size() == 1)
+		throw std::runtime_error("Error: not enough numbers to get a span");
+	return *(std::max_element(this->begin(), this->end())) - *(std::min_element(this->begin(), this->end()));
 }
 
-void	Span::prnt()
+std::ostream&	operator<<(std::ostream& os, const Span& vec)
 {
-	std::cout << "vec: {";
-	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
-		std::cout << *it << ", ";
-	std::cout << "}" << std::endl;
+	os << "{";
+    for (std::vector<const int>::iterator it = vec.begin(); it != vec.end(); it++)
+	{
+		if (*it != *(--vec.end()))
+			os << *it << ", ";
+		else
+			os << *it;
+	}
+	os << "}";
+    return os;
 }

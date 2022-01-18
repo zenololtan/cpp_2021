@@ -1,4 +1,7 @@
 #include "Span.hpp"
+#include "output.hpp"
+#include <cstdlib>
+#include <limits>
 
 void	failCheck()
 {
@@ -12,14 +15,21 @@ void	failCheck()
 		sp.addNumber(11);
 		sp.addNumber(69);
 	} catch (std::exception & msg) {
-		std::cerr << "Error: adding number out of bounds" << std::endl;
+		std::cerr << msg.what() << std::endl;
 	}
 	try {
 		Span sp = Span(5);
 
 		sp.shortestSpan();
 	} catch (std::exception & msg) {
-		std::cerr << "Error: no elements or only one element in object" << std::endl;
+		std::cerr << msg.what() << std::endl;
+	}
+	try {
+		Span sp = Span(5);
+
+		sp.longestSpan();
+	} catch (std::exception & msg) {
+		std::cerr << msg.what() << std::endl;
 	}
 }
 
@@ -34,9 +44,9 @@ void	shortCheck()
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		std::cout << "smallest span: " << sp.shortestSpan() << std::endl;
+		std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
 	} catch (std::exception & msg) {
-		std::cerr << "Error: adding number out of bounds" << std::endl;
+		std::cerr << msg.what() << std::endl;
 	}
 }
 
@@ -53,26 +63,45 @@ void	longCheck()
 
 		std::cout << "longest span: " << sp.longestSpan() << std::endl;
 	} catch (std::exception & msg) {
-		std::cerr << "Error: adding number out of bounds" << std::endl;
+		std::cerr << msg.what() << std::endl;
 	}
 }
 
 void	edgecaseCheck()
 {
-	Span sp = Span(5);
+	try{
+		Span sp = Span(5);
 
-	sp.addNumber(INT_MIN);
-	sp.addNumber(INT_MAX);
-	// sp.addNumber(2);
-	// sp.addNumber(-1);
-	std::cout << "longest span: " << sp.longestSpan() << std::endl;
-	std::cout << "smallest span: " << sp.shortestSpan() << std::endl;
+		sp.addNumber(std::numeric_limits<int>::min());
+		sp.addNumber(std::numeric_limits<int>::max());
+		std::cout << "longest span: " << sp.longestSpan() << std::endl;
+		std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
+	} catch (std::exception & msg) {
+		std::cerr << msg.what() << std::endl;
+	}
+	try {
+		Span sp = Span(10010);
+		std::vector<int> vec(10010);
+
+		std::generate(vec.begin(), vec.end(), arc4random);
+		sp.addNumber(vec.begin(), vec.end());
+		std::cout << "longest span: " << sp.longestSpan() << std::endl;
+		std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
+	} catch (std::exception & msg) {
+		std::cerr << msg.what() << std::endl;
+	}
 }
 
 int main()
 {
+	srand((unsigned)time(NULL));
+
+	print_divider(MAGENTA, "FAIL TEST");
 	failCheck();
+	print_divider(MAGENTA, "SHORT TEST");
 	shortCheck();
+	print_divider(MAGENTA, "LONG TEST");
 	longCheck();
+	print_divider(MAGENTA, "EDGECASE TEST");
 	edgecaseCheck();
 }

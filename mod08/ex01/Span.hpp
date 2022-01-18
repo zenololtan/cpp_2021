@@ -1,33 +1,26 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-# include <iostream>
-# include <exception>
-# include <functional>
 # include <vector>
-# include <stdlib.h>
+# include <iostream>
 
-class Span
+class Span : public std::vector<int>
 {
-	private:
-		/*--------------------------Member variables--------------------------*/
-		std::vector<int> vec;
-		unsigned int index;
-		unsigned int size;
-
-		Span();
 	public:
 		/*----------------------------Coplien form----------------------------*/
-		Span(unsigned int n);
+		Span(unsigned int size);
 		Span(const Span &ref);
 		Span& operator=(const Span &ref);
-		~Span();
+		virtual ~Span();
 
 		/*--------------------------Member functions--------------------------*/
-		void	addNumber(int num);
-		int		shortestSpan();
-		int		longestSpan();
-		void	prnt();
+		void			addNumber(int num);
+		void			addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
+		unsigned int	shortestSpan() const;
+		unsigned int	longestSpan() const;
+
 };
+
+std::ostream&	operator<<(std::ostream& os, const Span& spn);
 
 #endif
