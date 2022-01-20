@@ -2,10 +2,10 @@
 # define MUTANTSTACK_HPP
 
 # include <iostream>
-#include <deque>
-#include <stack>
+# include <deque>
+# include <stack>
 
-template <typename T, typename Container = std::deque<T> >
+template <typename T, typename Container = std::deque<T>>
 class MutantStack : public std::stack<T, Container> {
 	public:
 		MutantStack() : std::stack<T, Container>() {}
@@ -16,7 +16,6 @@ class MutantStack : public std::stack<T, Container> {
 				std::stack<T, Container>::operator=(ref);
 			return *this;
 		}
-		
 
 		typedef typename std::stack<T, Container>::container_type	container_type;
 		typedef typename container_type::iterator					iterator;

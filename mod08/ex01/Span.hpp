@@ -8,7 +8,7 @@ class Span : public std::vector<int>
 {
 	public:
 		/*----------------------------Coplien form----------------------------*/
-		Span(unsigned int size);
+		Span(unsigned int size = 0);
 		Span(const Span &ref);
 		Span& operator=(const Span &ref);
 		virtual ~Span();
